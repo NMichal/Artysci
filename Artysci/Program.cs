@@ -16,7 +16,8 @@ namespace Artysci
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Database.ConnectDatabase();
+            Application.Run(new Artysci.Forms.FormLogin());
         }
     }
 }
