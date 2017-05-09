@@ -8,5 +8,6 @@ namespace Artysci
 {
     class GlobalVariables
     {
+        public static string connetionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Artysci;User ID=Ankieter;Password=sa";
     }
 }

@@ -5,27 +5,122 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Artysci.ObjectsClass;
+using System.Diagnostics;
 
 namespace Artysci
 {
     class Database
     {
+        public static SqlConnection cnn;
+
+        #region ConnectDatabase
         public static void ConnectDatabase()
         {
-            string connetionString = null;
-            SqlConnection cnn;
-            connetionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Artysci;User ID=Ankieter;Password=sa";
-            cnn = new SqlConnection(connetionString);
+            cnn = new SqlConnection(GlobalVariables.connetionString);
             try
             {
                 cnn.Open();
                 MessageBox.Show("Connection Open ! ");
-                cnn.Close();
+                //cnn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open connection ! ");
+                MessageBox.Show("Can not open connection ! " + ex.Message);
             }
         }
+        #endregion
+
+        #region Database method sond
+        public static List<sond> GetSond(string where = "")
+        {
+            List<sond> sonds = new List<sond>();
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                con.Open();
+
+                string querry = "SELECT * FROM sond " + where;
+                using (SqlCommand command = new SqlCommand(querry, con))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int idIn = reader.GetInt32(0);
+                        string creator_loginIn = reader.GetString(1);
+                        string questionIn = reader.GetString(2);
+                        string date_startIn = reader.GetString(3);
+                        string date_endIn = reader.GetString(4);
+
+                        sonds.Add(new sond()
+                        {
+                            id = idIn,
+                            creator_login = creator_loginIn,
+                            question = questionIn,
+                            date_start = date_startIn,
+                            date_end = date_endIn
+                        });
+                    }
+                }
+                con.Close();
+            }
+            return sonds;
+        }
+
+
+        public static void AddSond(sond sond)
+        {
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                con.Open();
+                try
+                {
+                    List<sond> sonds = GetSond();
+                    int nextId = sonds.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
+                    using (SqlCommand command = new SqlCommand(
+                        "INSERT INTO sond VALUES(@id, @creator_login, @question, @date_start, @date_end)", con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", nextId));
+                        command.Parameters.Add(new SqlParameter("creator_login", sond.creator_login));
+                        command.Parameters.Add(new SqlParameter("question", sond.question));
+                        command.Parameters.Add(new SqlParameter("date_start", sond.date_start));
+                        command.Parameters.Add(new SqlParameter("date_end", sond.date_end));
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Count not insert.");
+                }
+            }
+        }
+
+
+        //public static void UpdateSond(sond sond)
+        //{
+        //    using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+        //    {
+        //        con.Open();
+        //        try
+        //        {                    
+        //            using (SqlCommand command = new SqlCommand(
+        //                "UPDATE sond SET(@id, @creator_login, @question, @date_start, @date_end)", con))
+        //            {
+        //                command.Parameters.Add(new SqlParameter("id", nextId));
+        //                command.Parameters.Add(new SqlParameter("creator_login", sond.creator_login));
+        //                command.Parameters.Add(new SqlParameter("question", sond.question));
+        //                command.Parameters.Add(new SqlParameter("date_start", sond.date_start));
+        //                command.Parameters.Add(new SqlParameter("date_end", sond.date_end));
+        //                command.ExecuteNonQuery();
+        //            }
+        //        }
+        //        catch
+        //        {
+        //            Console.WriteLine("Count not insert.");
+        //        }
+        //    }
+        //}
+
+
+        #endregion
     }
 }
