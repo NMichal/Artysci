@@ -46,8 +46,24 @@ namespace Artysci
             Database.UpdateSond(upd);
 
             //Delete test
-            sond deletesond = Database.GetSond("where id = 3")[0];
-            Database.DeleteSond(deletesond);
+            try
+            {
+                sond deletesond = Database.GetSond("where id = 3")[0];
+                Database.DeleteSond(deletesond);
+            }
+            catch
+            {
+                Debug.WriteLine("Brak obiektu");
+            }
+
+
+            //Test userTab
+            List<usersTab> userTabAll = Database.GetUsers(); //Test funkcji pobierającej sondy jako liste obiektów
+            foreach (usersTab user in userTabAll)
+            {
+                Debug.WriteLine(user.ToString());
+            }
+
             //>>>>>>>---------------ENDTEST--------------------------------<<<<<<<<<
             Application.Run(new Artysci.Forms.FormLogin());
         }

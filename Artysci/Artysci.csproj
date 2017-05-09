@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="ObjectsClass\sond.cs" />
+    <Compile Include="ObjectsClass\usersTab.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -143,5 +143,52 @@ namespace Artysci
 
 
         #endregion
+
+
+        #region Database method userTab
+
+        public static List<usersTab> GetUsers(string statement = "")
+        {
+            List<usersTab> users = new List<usersTab>();
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                con.Open();
+
+                string querry = "SELECT * FROM usersTab " + statement;
+                using (SqlCommand command = new SqlCommand(querry, con))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {                      
+                        string loginIn = reader.GetString(0);
+                        string passwordIn = reader.GetString(1);
+                        string emailIn = reader.GetString(2);
+                        string nameIn = reader.GetString(3);      
+                        string surnameIn = reader.GetString(4);
+                        string townIn = reader.GetString(5);
+                        int ageIn = reader.GetInt32(6);
+                        string stateIn = reader.GetString(8);
+                        string groupsIn = reader.GetString(9);
+
+                        users.Add(new usersTab()
+                        {
+                            login = loginIn,
+                            password = passwordIn,
+                            email = emailIn,
+                            name = nameIn,
+                            surname = surnameIn,
+                            town = townIn,
+                            age = ageIn,
+                            state = stateIn, 
+                            groups = groupsIn
+                        });
+                    }
+                }
+                con.Close();
+            }
+            return users;
+        }
+
+        #endregion
     }
 }
