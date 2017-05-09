@@ -20,7 +20,8 @@ namespace Artysci
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Database.ConnectDatabase(); //Podłączenie bazy przed wywołaniem jakiejkolwiek formatki
-            //---------------TEST--------------------------------
+
+            //>>>>>>>>>---------------TEST--------------------------------<<<<<<<<<
             List<sond> sondAll = Database.GetSond(); //Test funkcji pobierającej sondy jako liste obiektów
             foreach (sond sond in sondAll)
             {
@@ -34,12 +35,20 @@ namespace Artysci
                 Debug.WriteLine(sond.ToString());
             }
 
-            //wstawianie test
+            //insert test
             sond s = new sond() { creator_login = "wstaw", question = "tetst?", date_end = DateTime.Now.ToString(),
                 date_start = DateTime.Now.ToString() };
             Database.AddSond(s);
-            
-            //---------------TEST--------------------------------
+
+            //update test
+            sond upd = Database.GetSond("where id = 1")[0];
+            upd.question = "update test";
+            Database.UpdateSond(upd);
+
+            //Delete test
+            sond deletesond = Database.GetSond("where id = 3")[0];
+            Database.DeleteSond(deletesond);
+            //>>>>>>>---------------ENDTEST--------------------------------<<<<<<<<<
             Application.Run(new Artysci.Forms.FormLogin());
         }
     }
