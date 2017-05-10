@@ -74,8 +74,15 @@ namespace Artysci
                 con.Open();
                 try
                 {
+                    int nextId;
                     List<sond> sonds = GetSond();
-                    int nextId = sonds.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
+                    try {
+                        nextId = sonds.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
+                    } catch {
+                        nextId = 1;
+                    }
+                    //int nextId = sonds.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
+
                     using (SqlCommand command = new SqlCommand(
                         "INSERT INTO sond VALUES(@id, @creator_login, @question, @date_start, @date_end)", con))
                     {
@@ -94,7 +101,7 @@ namespace Artysci
             }
         }
 
-
+         
         public static void UpdateSond(sond sond)
         {
             using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
