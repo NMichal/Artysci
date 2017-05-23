@@ -22,16 +22,16 @@ namespace Artysci
             try
             {
                 cnn.Open();
-                MessageBox.Show("Connection Open ! ");
+                // MessageBox.Show("Connection Open ! ");
                 //cnn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open connection ! " + ex.Message);
+                // MessageBox.Show("Can not open connection ! " + ex.Message);
             }
         }
 
-       
+
         #endregion
 
         #region Database method sond
@@ -65,9 +65,9 @@ namespace Artysci
                     }
                 }
                 con.Close();
-                
+
             }
-            
+
             return sonds;
         }
 
@@ -81,9 +81,12 @@ namespace Artysci
                 {
                     int nextId;
                     List<sond> sonds = GetSond();
-                    try {
+                    try
+                    {
                         nextId = sonds.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
-                    } catch {
+                    }
+                    catch
+                    {
                         nextId = 1;
                     }
                     //int nextId = sonds.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
@@ -106,7 +109,7 @@ namespace Artysci
             }
         }
 
-         
+
         public static void UpdateSond(sond sond)
         {
             using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
@@ -171,15 +174,15 @@ namespace Artysci
                 {
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
-                    {                      
+                    {
                         string loginIn = reader.GetString(0);
                         string passwordIn = reader.GetString(1);
                         string emailIn = reader.GetString(2);
-                        string nameIn = reader.GetString(3);      
-                        string surnameIn = reader.GetString(4);
-                        string townIn = reader.GetString(5);
-                        int ageIn = reader.GetInt32(6);
-                        string stateIn = reader.GetString(8);
+                        string nameIn = reader.IsDBNull(3) ? "" : reader.GetString(3);
+                        string surnameIn = reader.IsDBNull(4) ? "" : reader.GetString(4);
+                        string townIn = reader.IsDBNull(5) ? "" : reader.GetString(5);
+                        int ageIn = reader.IsDBNull(6) ? 0 : reader.GetInt32(6);
+                        string stateIn = reader.IsDBNull(8) ? "" : reader.GetString(8);
                         string groupsIn = reader.GetString(9);
 
                         users.Add(new usersTab()
@@ -191,7 +194,7 @@ namespace Artysci
                             surname = surnameIn,
                             town = townIn,
                             age = ageIn,
-                            state = stateIn, 
+                            state = stateIn,
                             groups = groupsIn
                         });
                     }
@@ -200,6 +203,8 @@ namespace Artysci
             }
             return users;
         }
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -222,11 +227,11 @@ namespace Artysci
                         string loginIn = reader.GetString(0);
                         string passwordIn = reader.GetString(1);
                         string emailIn = reader.GetString(2);
-                        string nameIn = reader.GetString(3);
-                        string surnameIn = reader.GetString(4);
-                        string townIn = reader.GetString(5);
-                        int ageIn = reader.GetInt32(6);
-                        string stateIn = reader.GetString(8);
+                        string nameIn = reader.IsDBNull(3) ? "" : reader.GetString(3);
+                        string surnameIn = reader.IsDBNull(4) ? "" : reader.GetString(4);
+                        string townIn = reader.IsDBNull(5) ? "" : reader.GetString(5);
+                        int ageIn = reader.IsDBNull(6) ? 0 : reader.GetInt32(6);
+                        string stateIn = reader.IsDBNull(8) ? "" : reader.GetString(8);
                         string groupsIn = reader.GetString(9);
 
                         user = new usersTab()
@@ -248,6 +253,73 @@ namespace Artysci
             return user;
         }
 
-        #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        public static bool isLoginAvaible(string login)
+        {
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                con.Open();
+
+                string querry = "SELECT login FROM usersTab where login = @login ";
+                using (SqlCommand command = new SqlCommand(querry, con))
+                {
+                    command.Parameters.AddWithValue("@login", login);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        con.Close();
+                        return false;
+                    }
+                    con.Close();
+                    return true;
+                }
+
+            }
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="pass"></param>
+        /// <param name="email"></param>
+        public static bool addUser(string login, string pass, string email)
+        {
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                con.Open();
+                try
+                {
+
+                    using (SqlCommand command = new SqlCommand
+                        ("INSERT INTO usersTab (login, password, email, groups) VALUES (@login, @pass, @email, @user) ", con))
+                    {
+                        command.Parameters.Add(new SqlParameter("@login", login));
+                        command.Parameters.Add(new SqlParameter("@pass", pass));
+                        command.Parameters.Add(new SqlParameter("@email", email));
+                        command.Parameters.Add(new SqlParameter("@user", "user"));
+                        command.ExecuteNonQuery();
+                        con.Close();
+                       
+                        return true;
+                    }
+                }
+                catch (Exception e)
+                {
+                    con.Close();
+                    Console.WriteLine("Blad " + e);
+                    return false;
+                }
+            }
+
+        }
+            #endregion
+        
     }
 }

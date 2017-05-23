@@ -49,6 +49,7 @@
             // loginBox
             // 
             this.loginBox.Location = new System.Drawing.Point(87, 58);
+            this.loginBox.MaxLength = 50;
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(100, 20);
             this.loginBox.TabIndex = 1;
@@ -65,7 +66,9 @@
             // passwordBox
             // 
             this.passwordBox.Location = new System.Drawing.Point(87, 134);
+            this.passwordBox.MaxLength = 50;
             this.passwordBox.Name = "passwordBox";
+            this.passwordBox.PasswordChar = '*';
             this.passwordBox.Size = new System.Drawing.Size(100, 20);
             this.passwordBox.TabIndex = 2;
             // 
@@ -86,9 +89,11 @@
             this.registerBtn.TabIndex = 5;
             this.registerBtn.Text = "Rejestracja";
             this.registerBtn.UseVisualStyleBackColor = true;
+            this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
             // 
             // FormLogin
             // 
+            this.AcceptButton = this.loginBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);

@@ -42,7 +42,10 @@ namespace Artysci.Forms
 
         }
 
-     
-      
+        private void registerBtn_Click(object sender, EventArgs e)
+        {
+            FormRegister register = new FormRegister();
+            register.Show();
+        }
     }
 }
