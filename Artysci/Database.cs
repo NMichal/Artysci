@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Artysci.ObjectsClass;
 using System.Diagnostics;
+using System.Data;
 
 namespace Artysci
 {
@@ -29,6 +30,8 @@ namespace Artysci
                 MessageBox.Show("Can not open connection ! " + ex.Message);
             }
         }
+
+       
         #endregion
 
         #region Database method sond
@@ -62,7 +65,9 @@ namespace Artysci
                     }
                 }
                 con.Close();
+                
             }
+            
             return sonds;
         }
 
@@ -194,6 +199,53 @@ namespace Artysci
                 con.Close();
             }
             return users;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        public static usersTab getUserInfo(string login)
+        {
+            usersTab user = new usersTab();
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                con.Open();
+
+                string querry = "SELECT * FROM usersTab where login = @login ";
+                using (SqlCommand command = new SqlCommand(querry, con))
+                {
+                    command.Parameters.AddWithValue("@login", login);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string loginIn = reader.GetString(0);
+                        string passwordIn = reader.GetString(1);
+                        string emailIn = reader.GetString(2);
+                        string nameIn = reader.GetString(3);
+                        string surnameIn = reader.GetString(4);
+                        string townIn = reader.GetString(5);
+                        int ageIn = reader.GetInt32(6);
+                        string stateIn = reader.GetString(8);
+                        string groupsIn = reader.GetString(9);
+
+                        user = new usersTab()
+                        {
+                            login = loginIn,
+                            password = passwordIn,
+                            email = emailIn,
+                            name = nameIn,
+                            surname = surnameIn,
+                            town = townIn,
+                            age = ageIn,
+                            state = stateIn,
+                            groups = groupsIn
+                        };
+                    }
+                }
+                con.Close();
+            }
+            return user;
         }
 
         #endregion

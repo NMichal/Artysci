@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Artysci.ObjectsClass
 {
-    class usersTab
+    public class usersTab
     {
         public string login { get; set; }
         public string password { get; set; }
@@ -15,7 +15,7 @@ namespace Artysci.ObjectsClass
         public string surname { get; set; }
         public string town { get; set; }
         public int age { get; set; }
-        //public ?? image { get; set; } //jakiego typu
+        public string image { get; set; } 
         public string state { get; set; }
         public string groups { get; set; }
 

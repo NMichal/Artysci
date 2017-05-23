@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Artysci.ObjectsClass;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,33 @@ namespace Artysci.Forms
         public FormLogin()
         {
             InitializeComponent();
+
+            #if (DEBUG)
+            {
+                loginBox.Text = "admin";
+                passwordBox.Text = "admin";
+            }
+            #endif
         }
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            usersTab user = Database.getUserInfo(loginBox.Text);
+            
+            if(passwordBox.Text == user.password)
+            {
+                this.Hide();
+                FormMainWindow main = new FormMainWindow(user);
+                main.Show();
+            }
+            else
+            {
+                MessageBox.Show("Niepoprawne hasło");
+            }
+
+        }
+
+     
+      
     }
 }
