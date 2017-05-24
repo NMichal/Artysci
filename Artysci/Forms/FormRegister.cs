@@ -31,13 +31,13 @@ namespace Artysci.Forms
             else errEmailLabel.Visible = false;
 
             if ((passwordBox.Text == repasswordBox.Text) &&
-                !errRePassLabel.Visible && !errPassLabel.Visible && !errLoginLabel.Visible)
+                !errRePassLabel.Visible && !errPassLabel.Visible && !errLoginLabel.Visible && !errEmailLabel.Visible)
             {
                 if (Database.isLoginAvaible(loginBox.Text))
                 {
                     if (Database.addUser(loginBox.Text, passwordBox.Text, emailBox.Text))
                     {
-                        MessageBox.Show("Konto zostało założone poprawnie.\nMożesz zalogować się na swoje konto", "Błąd");
+                        MessageBox.Show("Konto zostało założone poprawnie.\nMożesz zalogować się na swoje konto", "Sukces!");
                         this.Close();
                     }
                     else

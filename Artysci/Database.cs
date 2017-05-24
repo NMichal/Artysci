@@ -261,24 +261,32 @@ namespace Artysci
         /// <returns></returns>
         public static bool isLoginAvaible(string login)
         {
-            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            try
             {
-                con.Open();
-
-                string querry = "SELECT login FROM usersTab where login = @login ";
-                using (SqlCommand command = new SqlCommand(querry, con))
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
                 {
-                    command.Parameters.AddWithValue("@login", login);
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        con.Close();
-                        return false;
-                    }
-                    con.Close();
-                    return true;
-                }
+                    con.Open();
 
+                    string querry = "SELECT login FROM usersTab where login = @login ";
+                    using (SqlCommand command = new SqlCommand(querry, con))
+                    {
+                        command.Parameters.AddWithValue("@login", login);
+                        SqlDataReader reader = command.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            con.Close();
+                            return false;
+                        }
+                        con.Close();
+                        return true;
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Blad " + e);
+                return false;
             }
         }
 
