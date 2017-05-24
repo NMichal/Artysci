@@ -62,7 +62,7 @@
     <Compile Include="Forms\FormLogins.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs" />
+    <Compile Include="Forms\FormLogins.Designer.cs" />
     <Compile Include="Forms\FormRegister.cs">
       <SubType>Form</SubType>
     </Compile>
