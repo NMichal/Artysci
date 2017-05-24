@@ -15,6 +15,7 @@ namespace Artysci.Forms
     {
         public FormLogin()
         {
+            Console.WriteLine("t");
             InitializeComponent();
 
             #if (DEBUG)
