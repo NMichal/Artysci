@@ -137,7 +137,7 @@ namespace Artysci.Forms
             this.RegisterButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.RegisterButton.Depth = 0;
             this.RegisterButton.Location = new System.Drawing.Point(224, 259);
-            this.RegisterButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.RegisterButton.Margin = new System.Windows.Forms.Padding   (4, 6, 4, 6);
             this.RegisterButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Primary = false;
