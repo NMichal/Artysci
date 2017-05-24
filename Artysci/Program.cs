@@ -66,7 +66,7 @@ namespace Artysci
 
             //>>>>>>>---------------ENDTEST--------------------------------<<<<<<<<<
 
-            Application.Run(new Artysci.Forms.FormLogin());
+            Application.Run(new Artysci.Forms.FormLogins());
         }
     }
 }

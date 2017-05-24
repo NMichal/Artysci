@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Artysci.Forms
 {
     partial class MainForm
     {

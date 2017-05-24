@@ -1,6 +1,8 @@
-﻿namespace WindowsFormsApp1
+﻿using System;
+
+namespace Artysci.Forms
 {
-    partial class Form1
+    partial class FormLogins
     {
         /// <summary>
         /// Required designer variable.
@@ -51,13 +53,13 @@
             this.RememberMeCheckBox.Ripple = true;
             this.RememberMeCheckBox.Size = new System.Drawing.Size(120, 30);
             this.RememberMeCheckBox.TabIndex = 0;
-            this.RememberMeCheckBox.Text = "Remember me ";
+            this.RememberMeCheckBox.Text = "Zapamiętaj mnie";
             this.RememberMeCheckBox.UseVisualStyleBackColor = true;
             // 
             // PasswordTextBox
             // 
             this.PasswordTextBox.Depth = 0;
-            this.PasswordTextBox.Hint = "Password";
+            this.PasswordTextBox.Hint = "Hasło";
             this.PasswordTextBox.Location = new System.Drawing.Point(26, 133);
             this.PasswordTextBox.MouseState = MaterialSkin.MouseState.HOVER;
             this.PasswordTextBox.Name = "PasswordTextBox";
@@ -96,7 +98,7 @@
             this.LoginButton.Primary = false;
             this.LoginButton.Size = new System.Drawing.Size(52, 36);
             this.LoginButton.TabIndex = 3;
-            this.LoginButton.Text = "LOGIN";
+            this.LoginButton.Text = "Zaloguj";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
@@ -125,8 +127,9 @@
             this.ForgetPasswordButton.Primary = false;
             this.ForgetPasswordButton.Size = new System.Drawing.Size(185, 36);
             this.ForgetPasswordButton.TabIndex = 5;
-            this.ForgetPasswordButton.Text = "Forget your password?";
+            this.ForgetPasswordButton.Text = "Zapomniałeś hasła?";
             this.ForgetPasswordButton.UseVisualStyleBackColor = false;
+            
             // 
             // RegisterButton
             // 
@@ -140,8 +143,9 @@
             this.RegisterButton.Primary = false;
             this.RegisterButton.Size = new System.Drawing.Size(74, 36);
             this.RegisterButton.TabIndex = 6;
-            this.RegisterButton.Text = "Register";
+            this.RegisterButton.Text = "Rejestracja";
             this.RegisterButton.UseVisualStyleBackColor = true;
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // materialDivider2
             // 
@@ -156,7 +160,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 334);
             this.Controls.Add(this.materialDivider2);
@@ -172,6 +176,8 @@
             this.PerformLayout();
 
         }
+
+
 
         #endregion
 

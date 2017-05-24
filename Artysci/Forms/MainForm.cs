@@ -1,4 +1,5 @@
-﻿using MaterialSkin;
+﻿using Artysci.ObjectsClass;
+using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace Artysci.Forms
 {
     public partial class MainForm : MaterialForm
     {
-        public MainForm()
+        usersTab user;
+        public MainForm(usersTab userInfo)
         {
             InitializeComponent();
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            this.user = userInfo;
         }
     }
     
