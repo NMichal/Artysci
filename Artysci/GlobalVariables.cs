@@ -8,7 +8,6 @@ namespace Artysci
 {
     class GlobalVariables
     {
-        //public static string connetionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Artysci;User ID=Ankieter;Password=sa";
-        public static string connetionString =  "Data Source=DESKTOP-0T0F5BN;Initial Catalog = Test; Integrated Security = True";
+        public static string connetionString = "Data Source = zespol.sytes.net\\SQLZESPOL,1433; Initial Catalog = ArtysciDB; User ID = Admin; Password=;";
     }
 }
