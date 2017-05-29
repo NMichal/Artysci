@@ -22,12 +22,14 @@ namespace Artysci
             try
             {
                 cnn.Open();
-                MessageBox.Show("Connection Open ! ");
+                CustomMessageBox.Show("", "Connection Open!");
+                //MessageBox.Show("Connection Open! ");
                 cnn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open connection ! " + ex.Message);
+                CustomMessageBox.Show("Error", "Can not open connection!");
+                //MessageBox.Show("Can not open connection ! " + ex.Message);
             }
         }
 

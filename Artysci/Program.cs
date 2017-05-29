@@ -16,7 +16,7 @@ namespace Artysci
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        { 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Database.ConnectDatabase(); //Podłączenie bazy przed wywołaniem jakiejkolwiek formatki
