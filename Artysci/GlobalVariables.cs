@@ -8,6 +8,6 @@ namespace Artysci
 {
     class GlobalVariables
     {
-        public static string connetionString = "Data Source = zespol.sytes.net\\SQLZESPOL,1433; Initial Catalog = ArtysciDB; User ID = Admin; Password=Programowanie12";
+        public static string connetionString = "Data Source = zespol.sytes.net\\SQLZESPOL,1433; Initial Catalog = ArtysciDB; User ID = Admin; Password=Programowanie12;";
     }
 }

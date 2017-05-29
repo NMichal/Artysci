@@ -45,7 +45,7 @@ namespace Artysci.Forms
             }
             else
             {
-                CustomMessageBox.Show("","Niepoprawne hasło");
+                CustomMessageBox.Show("Błąd", "Niepoprawne hasło");
             }
      
         }
