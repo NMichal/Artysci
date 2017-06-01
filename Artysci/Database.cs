@@ -333,9 +333,76 @@ namespace Artysci
 
         #region Database method Announcements
 
-        public static void addAnnon()
+        public static List<Announ> getAnnouns()
         {
+            List<Announ> announs = new List<Announ>();
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                try
+                {
+                    con.Open();
+                    string qry = "SELECT * FROM Announcements";
 
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+                        while(reader.Read())
+                        {
+                            int idIn = reader.GetInt32(0);
+                            string loginIn = reader.GetString(1);
+                            int profileIdIn = reader.GetInt32(2);
+                            string dateIn = reader.GetString(3);
+                            string descrIn = reader.GetString(4);
+                            string type_anounIn = reader.GetString(5);
+                            string type_lookingIn = reader.GetString(6);
+
+                            announs.Add(new Announ()
+                            {
+                                id = idIn,
+                                login_user = loginIn,
+                                date = dateIn,
+                                descr = descrIn,
+                                profile_id = profileIdIn,
+                                type_anoun = type_anounIn,
+                                type_looking = type_lookingIn
+                            });
+                        }
+                    }
+
+                }catch (Exception e)
+                {
+                    Console.WriteLine("Blad " + e);
+                }
+            }
+
+            return announs;
+        }
+
+
+        public static void addAnnon(Announ announ)
+        {
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                con.Open();
+                try
+                {
+                    int nextId;
+                    List<Announ> announs = getAnnouns(); 
+                    try
+                    {
+                        
+                            nextId = announs.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
+                        
+                    }
+                    catch(Exception e)
+                    {
+                        nextId = 1;
+                    }
+                }catch (Exception e)
+                {
+                    Console.WriteLine("Blad " + e);
+                }
+            }
         }
         #endregion
 

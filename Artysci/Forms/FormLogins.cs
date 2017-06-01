@@ -22,7 +22,6 @@ namespace Artysci.Forms
             {
                 LoginTextBox.Text = "admin";
                 PasswordTextBox.Text = "admin";
-                //
             }
             #endif
         }

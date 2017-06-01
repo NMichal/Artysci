@@ -64,6 +64,13 @@ namespace Artysci
                 Debug.WriteLine(user.ToString());
             }
 
+            //Test Announ
+            List<Announ> announ = Database.getAnnouns();
+            foreach (Announ item in announ)
+            {
+                Debug.WriteLine(item.ToString());
+            }
+
             //>>>>>>>---------------ENDTEST--------------------------------<<<<<<<<<
 
             Application.Run(new Artysci.Forms.FormLogins());
