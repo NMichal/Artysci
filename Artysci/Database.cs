@@ -379,7 +379,7 @@ namespace Artysci
         }
 
 
-        public static void addAnnon(Announ announ)
+        public static void addAnnon(Announ announ, usersTab user)
         {
             using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
             {
@@ -390,15 +390,27 @@ namespace Artysci
                     List<Announ> announs = getAnnouns(); 
                     try
                     {
-                        
-                            nextId = announs.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
-                        
+                        nextId = announs.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
                     }
                     catch(Exception e)
                     {
                         nextId = 1;
                     }
-                }catch (Exception e)
+
+                    string qry = @"INSERT INTO Announcements(id, login_user, profile_id, date, descr, type_anoun, type_looking)  
+                                              VALUES (@id, @login_user, @profile_id, @date, @descr, @type_anoun, @type_looking)";
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", nextId));
+                        command.Parameters.Add(new SqlParameter("login_user", user.login));
+                        command.Parameters.Add(new SqlParameter("profie_id", nextId));
+
+
+                    }
+
+
+                }
+                catch (Exception e)
                 {
                     Console.WriteLine("Blad " + e);
                 }
