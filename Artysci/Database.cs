@@ -329,7 +329,15 @@ namespace Artysci
             }
 
         }
-            #endregion
-        
+        #endregion
+
+        #region Database method Announcements
+
+        public static void addAnnon()
+        {
+
+        }
+        #endregion
+
     }
 }
