@@ -165,6 +165,11 @@ namespace Artysci
 
         #region Database method userTab
 
+        /// <summary>
+        /// Pobiera dane o uzytkownikach
+        /// </summary>
+        /// <param name="statement"></param>
+        /// <returns>liste z obiektami users</returns>
         public static List<usersTab> GetUsers(string statement = "")
         {
             List<usersTab> users = new List<usersTab>();
@@ -209,10 +214,10 @@ namespace Artysci
 
 
         /// <summary>
-        /// 
+        /// Pobiera dane o jednym uzytowniku
         /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
+        /// <param name="login">login uzytkownika</param>
+        /// <returns>obiekt user</returns>
         public static usersTab getUserInfo(string login)
         {
             usersTab user = new usersTab();
@@ -258,7 +263,7 @@ namespace Artysci
 
 
         /// <summary>
-        /// 
+        ///  Sprawdza czy login jest zajety badz nie
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
@@ -295,11 +300,8 @@ namespace Artysci
 
 
         /// <summary>
-        /// 
+        /// Dodaje uzytkownika do bazy
         /// </summary>
-        /// <param name="login"></param>
-        /// <param name="pass"></param>
-        /// <param name="email"></param>
         public static bool addUser(string login, string pass, string email)
         {
             using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
@@ -384,7 +386,10 @@ namespace Artysci
             return announs;
         }
 
-
+        /// <summary>
+        /// Dodaje ogloszenie do bazy
+        /// </summary>
+        /// <param name="announ"></param>
         public static void addAnnon(Announ announ)
         {
             using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
@@ -398,7 +403,7 @@ namespace Artysci
                     {
                         nextId = announs.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
                     }
-                    catch(Exception e)
+                    catch(Exception)
                     {
                         nextId = 1;
                     }
