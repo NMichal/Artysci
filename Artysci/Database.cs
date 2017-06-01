@@ -418,5 +418,53 @@ namespace Artysci
         }
         #endregion
 
+        #region profile
+        public static Profile getProfile(int id)
+        {
+            Profile profile = new Profile();
+
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                try
+                {
+                    con.Open();
+                    string qry = "SELECT * FROM profile where id = @id";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", id));
+
+                        SqlDataReader reader = command.ExecuteReader();
+                        while(reader.Read())
+                        {
+                            int idIn = reader.GetInt32(0);
+                            string nameIn = reader.GetString(1);
+                            string typeIn = reader.GetString(2);
+                            string descrIn = reader.GetString(3);
+                            //string members = reader.GetString(4);
+                            string genreIn = reader.GetString(4);
+                            string exampleIn = reader.GetString(5);
+
+                            profile.id = idIn;
+                            profile.descr = descrIn;
+                            profile.name = nameIn;
+                            profile.genre = genreIn;
+                            profile.example = exampleIn;
+                        }
+
+                    }
+
+
+                }catch (Exception e)
+                {
+                    Console.WriteLine("Blad, " + e);
+                }
+            }
+
+                return profile;
+        }
+
+        #endregion
+
     }
 }
