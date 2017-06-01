@@ -108,6 +108,7 @@ namespace Artysci
                 {
                     Console.WriteLine("Count not insert.");
                 }
+                con.Close();
             }
         }
 
@@ -333,6 +334,10 @@ namespace Artysci
 
         #region Database method Announcements
 
+        /// <summary>
+        /// Pobiera ogłoszenia z bazy
+        /// </summary>
+        /// <returns> liste z obiektami Announs</returns>
         public static List<Announ> getAnnouns()
         {
             List<Announ> announs = new List<Announ>();
@@ -373,13 +378,14 @@ namespace Artysci
                 {
                     Console.WriteLine("Blad " + e);
                 }
+                con.Close();
             }
 
             return announs;
         }
 
 
-        public static void addAnnon(Announ announ, usersTab user)
+        public static void addAnnon(Announ announ)
         {
             using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
             {
@@ -402,10 +408,14 @@ namespace Artysci
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {
                         command.Parameters.Add(new SqlParameter("id", nextId));
-                        command.Parameters.Add(new SqlParameter("login_user", user.login));
-                        command.Parameters.Add(new SqlParameter("profie_id", nextId));
+                        command.Parameters.Add(new SqlParameter("login_user", announ.login_user));
+                        command.Parameters.Add(new SqlParameter("profie_id", announ.profile_id));
+                        command.Parameters.Add(new SqlParameter("date", announ.date));
+                        command.Parameters.Add(new SqlParameter("descr", announ.descr));
+                        command.Parameters.Add(new SqlParameter("type_anoun", announ.type_anoun));
+                        command.Parameters.Add(new SqlParameter("type_looking", announ.type_looking));
 
-
+                        command.ExecuteNonQuery();
                     }
 
 
@@ -414,12 +424,18 @@ namespace Artysci
                 {
                     Console.WriteLine("Blad " + e);
                 }
+                con.Close();
             }
         }
         #endregion
 
         #region profile
-        public static Profile getProfile(int id)
+        /// <summary>
+        /// Pobiera profil uzytkownika z bazy
+        /// </summary>
+        /// <param name="id">id profilu, id = 0 wszystkie profile</param>
+        /// <returns>obiekt Profile</returns>
+        public static Profile getProfile(int id = 0)
         {
             Profile profile = new Profile();
 
@@ -428,11 +444,13 @@ namespace Artysci
                 try
                 {
                     con.Open();
-                    string qry = "SELECT * FROM profile where id = @id";
+                    string qry = "SELECT * FROM profile where id = @id ORDER BY id";
 
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {
-                        command.Parameters.Add(new SqlParameter("id", id));
+                        
+                        if (id == 0) command.Parameters.Add(new SqlParameter("id", "id"));
+                        else command.Parameters.Add(new SqlParameter("id", id));
 
                         SqlDataReader reader = command.ExecuteReader();
                         while(reader.Read())
@@ -454,15 +472,99 @@ namespace Artysci
 
                     }
 
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Blad, " + e);
+                }
+               
+            }
 
+            return profile;
+        }
+
+        /// <summary>
+        /// Dodaje profil do bazy
+        /// </summary>
+        public static void addProfile(Profile profile, usersTab user)
+        {
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                try
+                {
+                    con.Open();
+                    string qry = @"INSERT INTO profile(id, name, type, descr, genre, example) 
+                                          VALUES(@id, @name, @type, @descr, @genre, @example)";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        int nextId;
+                        Profile id_profile = getProfile();
+                        try
+                        {
+                            if(id_profile.id > 0)
+                            {
+                                nextId = id_profile.id + 1;
+                            }
+                            else
+                            {
+                                nextId = 1;
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            nextId = 1;
+                        }
+                        command.Parameters.Add(new SqlParameter("id", profile.id));
+                        command.Parameters.Add(new SqlParameter("name", profile.name));
+                        command.Parameters.Add(new SqlParameter("type", profile.type));
+                        command.Parameters.Add(new SqlParameter("genre", profile.genre));
+                        command.Parameters.Add(new SqlParameter("example", profile.example));
+
+                        command.ExecuteNonQuery();
+                    }
                 }catch (Exception e)
                 {
                     Console.WriteLine("Blad, " + e);
                 }
+
+                con.Close();
+                addProfileLogin(profile.id, user.login);
+
+            }
+        }
+
+        /// <summary>
+        /// Dodaje profil z przypisanym loginem uzytkownika
+        /// </summary>
+        public static void addProfileLogin(int profile_id, string user_login)
+        {
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                con.Open();
+                try
+                {
+                    string qry = "INSERT INTO profileLogin(id, login_user) VALUES(@id, @login)";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", profile_id));
+                        command.Parameters.Add(new SqlParameter("login", user_login));
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Blad, " + e);
+                }
+
+                con.Close();
             }
 
-                return profile;
         }
+
+
 
         #endregion
 

@@ -10,6 +10,7 @@ namespace Artysci.ObjectsClass
     {
         public int id { get; set; }
         public string name { get; set; }
+        public string type { get; set; }
         public string descr { get; set; }
         public string genre { get; set; }
         public string example { get; set; }
