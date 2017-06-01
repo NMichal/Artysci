@@ -82,6 +82,7 @@
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="ObjectsClass\Announ.cs" />
     <Compile Include="ObjectsClass\Profile.cs" />
+    <Compile Include="ObjectsClass\ProfileLogin.cs" />
     <Compile Include="ObjectsClass\sond.cs" />
     <Compile Include="ObjectsClass\usersTab.cs" />
     <Compile Include="Program.cs" />
