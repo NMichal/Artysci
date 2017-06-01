@@ -14,5 +14,11 @@ namespace Artysci.ObjectsClass
         public string genre { get; set; }
         public string example { get; set; }
 
+        public override string ToString()
+        {
+            return string.Format("id: {0}, name: {1}, descr: {2}, genre: {3}, example: {4} ", id, name, descr, genre, example);
+            
+        }
+
     }
 }

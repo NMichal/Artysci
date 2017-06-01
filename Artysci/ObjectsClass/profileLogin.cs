@@ -10,5 +10,10 @@ namespace Artysci.ObjectsClass
     {
         public int id_profile { get; set; }
         public string login_user { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("id: {0), login_user: {1}", id_profile, login_user);
+        }
     }
 }
