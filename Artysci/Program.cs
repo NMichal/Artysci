@@ -59,9 +59,9 @@ namespace Artysci
 
             //Test userTab
             List<usersTab> userTabAll = Database.GetUsers(); //Test funkcji pobierającej sondy jako liste obiektów
-            foreach (usersTab user in userTabAll)
+            foreach (usersTab userr in userTabAll)
             {
-                Debug.WriteLine(user.ToString());
+                Debug.WriteLine(userr.ToString());
             }
 
             //Test Announ
@@ -74,7 +74,14 @@ namespace Artysci
             //Test Profile
 
             Profile prof = Database.getProfile();
-            Debug.WriteLine("prof id = {0}, name = {1}, type = {2}, descr = {3}, genre = {4}, example = {5}", prof.id, prof.name, prof.type, prof.descr, prof.genre, prof.example);
+            Debug.WriteLine(prof.ToString());
+            usersTab user = Database.getUserInfo("matek");
+            List<ProfileLogin> profiles = Database.getAllUserProfiles(user);
+            foreach (ProfileLogin item in profiles)
+            {
+                Debug.WriteLine(item.login_user);
+                Debug.WriteLine(item.id_profile);
+            }
             //>>>>>>>---------------ENDTEST--------------------------------<<<<<<<<<
 
             Application.Run(new Artysci.Forms.FormLogins());

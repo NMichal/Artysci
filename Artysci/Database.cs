@@ -501,9 +501,10 @@ namespace Artysci
             List<ProfileLogin> profiles = new List<ProfileLogin>();
             using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
             {
+                con.Open();
                 try
                 {
-                    string qry = "SELECT id_profile FROM profileLogin WHERE login_user = @login";
+                    string qry = "SELECT * FROM profileLogin WHERE login_user = @login";
 
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {
@@ -527,7 +528,9 @@ namespace Artysci
                 {
                     Console.WriteLine("Blad " + e);
                 }
+                con.Close();
             }
+
 
                 return profiles;
         }
