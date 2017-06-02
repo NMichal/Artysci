@@ -449,20 +449,21 @@ namespace Artysci
                 try
                 {
                     con.Open();
-                    string qry = "SELECT * FROM profile where id = @id ORDER BY id";
+                    string qry = "SELECT * FROM profile ";
+                    if (id != 0) qry += "where id = @id";
+                    qry += "ORDER BY id";
 
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {
                         
-                        if (id == 0) command.Parameters.Add(new SqlParameter("id", "id"));
-                        else command.Parameters.Add(new SqlParameter("id", id));
+                        if (id != 0) command.Parameters.Add(new SqlParameter("id", id));
 
                         SqlDataReader reader = command.ExecuteReader();
                         while(reader.Read())
                         {
                             int idIn = reader.GetInt32(0);
                             string nameIn = reader.GetString(1);
-                            string typeIn = reader.GetString(2);
+                            int typeIn = reader.GetInt32(2);
                             string descrIn = reader.GetString(3);
                             //string members = reader.GetString(4);
                             string genreIn = reader.GetString(4);
@@ -471,6 +472,7 @@ namespace Artysci
                             profile.id = idIn;
                             profile.descr = descrIn;
                             profile.name = nameIn;
+                            profile.type = typeIn;
                             profile.genre = genreIn;
                             profile.example = exampleIn;
                         }
@@ -562,7 +564,8 @@ namespace Artysci
                         {
                             nextId = 1;
                         }
-                        command.Parameters.Add(new SqlParameter("id", profile.id));
+
+                        command.Parameters.Add(new SqlParameter("id", nextId));
                         command.Parameters.Add(new SqlParameter("name", profile.name));
                         command.Parameters.Add(new SqlParameter("type", profile.type));
                         command.Parameters.Add(new SqlParameter("genre", profile.genre));

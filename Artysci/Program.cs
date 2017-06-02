@@ -71,6 +71,10 @@ namespace Artysci
                 Debug.WriteLine(item.ToString());
             }
 
+            //Test Profile
+
+            Profile prof = Database.getProfile();
+            Debug.WriteLine("prof id = {0}, name = {1}, type = {2}, descr = {3}, genre = {4}, example = {5}", prof.id, prof.name, prof.type, prof.descr, prof.genre, prof.example);
             //>>>>>>>---------------ENDTEST--------------------------------<<<<<<<<<
 
             Application.Run(new Artysci.Forms.FormLogins());
