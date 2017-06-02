@@ -434,7 +434,7 @@ namespace Artysci
         }
         #endregion
 
-        #region profile
+        #region Database method profile
         /// <summary>
         /// Pobiera profil uzytkownika z bazy
         /// </summary>
@@ -487,6 +487,47 @@ namespace Artysci
             }
 
             return profile;
+        }
+
+        /// <summary>
+        /// Pobieranie wszystkich id profilów danego uzytkownika
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static List<ProfileLogin> getAllUserProfiles(usersTab user)
+        {
+            List<ProfileLogin> profiles = new List<ProfileLogin>();
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                try
+                {
+                    string qry = "SELECT id_profile FROM profileLogin WHERE login_user = @login";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("login", user.login));
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while(reader.Read())
+                        {
+                            int idIn = reader.GetInt32(0);
+                            string loginIn = reader.GetString(1);
+
+                            profiles.Add(new ProfileLogin
+                            {
+                                id_profile = idIn,
+                                login_user = loginIn
+                            });
+                        }
+                    }
+                }catch (Exception e)
+                {
+                    Console.WriteLine("Blad " + e);
+                }
+            }
+
+                return profiles;
         }
 
         /// <summary>
@@ -568,9 +609,6 @@ namespace Artysci
             }
 
         }
-
-
-
         #endregion
 
     }
