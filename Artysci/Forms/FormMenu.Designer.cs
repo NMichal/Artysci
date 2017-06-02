@@ -34,12 +34,20 @@
             this.ButtonOgloszenia = new MaterialSkin.Controls.MaterialFlatButton();
             this.TabMain = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.metroListView1 = new MetroFramework.Controls.MetroListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.TextBoxSzukaj = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.contentPanel = new System.Windows.Forms.Panel();
             this.PanelMenu.SuspendLayout();
             this.TabMain.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelMenu
@@ -63,10 +71,11 @@
             this.ButtonGrupy.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonGrupy.Name = "ButtonGrupy";
             this.ButtonGrupy.Primary = false;
-            this.ButtonGrupy.Size = new System.Drawing.Size(56, 36);
+            this.ButtonGrupy.Size = new System.Drawing.Size(65, 36);
             this.ButtonGrupy.TabIndex = 2;
-            this.ButtonGrupy.Text = "GRUPY";
+            this.ButtonGrupy.Text = "PROFILE";
             this.ButtonGrupy.UseVisualStyleBackColor = true;
+            this.ButtonGrupy.Click += new System.EventHandler(this.ButtonGrupy_Click);
             // 
             // ButtonSondy
             // 
@@ -82,6 +91,7 @@
             this.ButtonSondy.TabIndex = 1;
             this.ButtonSondy.Text = "SONDY";
             this.ButtonSondy.UseVisualStyleBackColor = true;
+            this.ButtonSondy.Click += new System.EventHandler(this.ButtonSondy_Click);
             // 
             // ButtonOgloszenia
             // 
@@ -97,6 +107,7 @@
             this.ButtonOgloszenia.TabIndex = 0;
             this.ButtonOgloszenia.Text = "OGŁOSZENIA";
             this.ButtonOgloszenia.UseVisualStyleBackColor = true;
+            this.ButtonOgloszenia.Click += new System.EventHandler(this.ButtonOgloszenia_Click);
             // 
             // TabMain
             // 
@@ -104,15 +115,17 @@
             this.TabMain.Controls.Add(this.tabPage2);
             this.TabMain.Controls.Add(this.tabPage3);
             this.TabMain.Depth = 0;
-            this.TabMain.Location = new System.Drawing.Point(109, 63);
+            this.TabMain.Location = new System.Drawing.Point(112, 63);
             this.TabMain.MouseState = MaterialSkin.MouseState.HOVER;
             this.TabMain.Name = "TabMain";
             this.TabMain.SelectedIndex = 0;
             this.TabMain.Size = new System.Drawing.Size(690, 538);
-            this.TabMain.TabIndex = 1;
+            this.TabMain.TabIndex = 2;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.materialLabel1);
+            this.tabPage1.Controls.Add(this.metroListView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -121,8 +134,34 @@
             this.tabPage1.Text = "Twoje Ogloszenia";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(220, 24);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(82, 19);
+            this.materialLabel1.TabIndex = 1;
+            this.materialLabel1.Text = "ogloszenia";
+            // 
+            // metroListView1
+            // 
+            this.metroListView1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.metroListView1.FullRowSelect = true;
+            this.metroListView1.Location = new System.Drawing.Point(44, 83);
+            this.metroListView1.Name = "metroListView1";
+            this.metroListView1.OwnerDraw = true;
+            this.metroListView1.Size = new System.Drawing.Size(173, 270);
+            this.metroListView1.TabIndex = 0;
+            this.metroListView1.UseCompatibleStateImageBehavior = false;
+            this.metroListView1.UseSelectable = true;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.materialLabel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -131,15 +170,42 @@
             this.tabPage2.Text = "Twoje Sondy";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(211, 48);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(49, 19);
+            this.materialLabel2.TabIndex = 0;
+            this.materialLabel2.Text = "sondy";
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.materialLabel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(682, 512);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Twoje Grupy";
+            this.tabPage3.Text = "Twoje Profile";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(236, 70);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(93, 19);
+            this.materialLabel3.TabIndex = 0;
+            this.materialLabel3.Text = "twoje profile";
             // 
             // materialTabSelector1
             // 
@@ -151,6 +217,7 @@
             this.materialTabSelector1.Size = new System.Drawing.Size(693, 39);
             this.materialTabSelector1.TabIndex = 2;
             this.materialTabSelector1.Text = "materialTabSelector1";
+            this.materialTabSelector1.Click += new System.EventHandler(this.materialTabSelector1_Click);
             // 
             // TextBoxSzukaj
             // 
@@ -168,19 +235,34 @@
             this.TextBoxSzukaj.TabIndex = 3;
             this.TextBoxSzukaj.UseSystemPasswordChar = false;
             // 
+            // contentPanel
+            // 
+            this.contentPanel.Location = new System.Drawing.Point(109, 66);
+            this.contentPanel.Name = "contentPanel";
+            this.contentPanel.Size = new System.Drawing.Size(681, 519);
+            this.contentPanel.TabIndex = 2;
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.TabMain);
+            this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.TextBoxSzukaj);
             this.Controls.Add(this.materialTabSelector1);
-            this.Controls.Add(this.TabMain);
             this.Controls.Add(this.PanelMenu);
             this.Name = "FormMenu";
+            this.Load += new System.EventHandler(this.FormMenu_Load);
             this.PanelMenu.ResumeLayout(false);
             this.PanelMenu.PerformLayout();
             this.TabMain.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -197,5 +279,10 @@
         private System.Windows.Forms.TabPage tabPage3;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private MaterialSkin.Controls.MaterialSingleLineTextField TextBoxSzukaj;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MetroFramework.Controls.MetroListView metroListView1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.Panel contentPanel;
     }
 }

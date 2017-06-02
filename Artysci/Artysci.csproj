@@ -89,6 +89,24 @@
     <Compile Include="ObjectsClass\usersTab.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ucAnnouncements.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucAnnouncements.Designer.cs">
+      <DependentUpon>ucAnnouncements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucProfiles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucProfiles.Designer.cs">
+      <DependentUpon>ucProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucSonds.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucSonds.Designer.cs">
+      <DependentUpon>ucSonds.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +128,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ucAnnouncements.resx">
+      <DependentUpon>ucAnnouncements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucProfiles.resx">
+      <DependentUpon>ucProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucSonds.resx">
+      <DependentUpon>ucSonds.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
