@@ -408,17 +408,19 @@ namespace Artysci
                         nextId = 1;
                     }
 
-                    string qry = @"INSERT INTO Announcements(id, login_user, profile_id, date, descr, type_anoun, type_looking)  
-                                              VALUES (@id, @login_user, @profile_id, @date, @descr, @type_anoun, @type_looking)";
+                    string qry = @"INSERT INTO Announcements(id, login_user, profile_id, date, descr, type_anoun, type_looking, title, town)  
+                                              VALUES (@id, @login_user, @profile_id, @date, @descr, @type_anoun, @type_looking, @title, @town)";
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {
                         command.Parameters.Add(new SqlParameter("id", nextId));
                         command.Parameters.Add(new SqlParameter("login_user", announ.login_user));
-                        command.Parameters.Add(new SqlParameter("profie_id", announ.profile_id));
+                        command.Parameters.Add(new SqlParameter("profile_id", announ.profile_id));
                         command.Parameters.Add(new SqlParameter("date", announ.date));
                         command.Parameters.Add(new SqlParameter("descr", announ.descr));
                         command.Parameters.Add(new SqlParameter("type_anoun", announ.type_anoun));
                         command.Parameters.Add(new SqlParameter("type_looking", announ.type_looking));
+                        command.Parameters.Add(new SqlParameter("title", announ.title));
+                        command.Parameters.Add(new SqlParameter("town", announ.town));
 
                         command.ExecuteNonQuery();
                     }
@@ -451,7 +453,7 @@ namespace Artysci
                     con.Open();
                     string qry = "SELECT * FROM profile ";
                     if (id != 0) qry += "where id = @id";
-                    qry += "ORDER BY id";
+                    qry += " ORDER BY id";
 
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {
