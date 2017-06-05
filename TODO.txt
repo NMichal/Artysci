@@ -1,7 +1,7 @@
 1. Dodawanie:
 	- profili (formatka, logika) - Matek (logika)
 	- og³oszeñ (formatka, logika) - £ukasz (formatki) Matek (logika)
-	- sond (formatka, logika) - £ukasz (formatki) Matek (logika)
+	- sond (formatka, logika) - £ukasz (formatki) Matek (logika )
 2. Wyœwietlanie (TAB SELECTOR):
 	- twoje og³oszenia (z applied Announ powinny siê te¿ wyœwietlic kto siê zg³osi³ do tego) (logika i wyglad)
 	- twoje sondy (logika i wyglad)
