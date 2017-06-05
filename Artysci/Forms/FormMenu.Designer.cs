@@ -37,12 +37,15 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.metroListView1 = new MetroFramework.Controls.MetroListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.TextBoxSzukaj = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.contentPanel = new System.Windows.Forms.Panel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.PanelMenu.SuspendLayout();
             this.TabMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -124,6 +127,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.materialLabel5);
             this.tabPage1.Controls.Add(this.materialLabel1);
             this.tabPage1.Controls.Add(this.metroListView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -161,6 +165,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.materialFlatButton1);
             this.tabPage2.Controls.Add(this.materialLabel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -169,6 +174,24 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Twoje Sondy";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // materialFlatButton1
+            // 
+            this.materialFlatButton1.AutoSize = true;
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.materialFlatButton1.Location = new System.Drawing.Point(7, 9);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = false;
+            this.materialFlatButton1.Size = new System.Drawing.Size(172, 36);
+            this.materialFlatButton1.TabIndex = 1;
+            this.materialFlatButton1.Text = "materialFlatButton1";
+            this.materialFlatButton1.UseVisualStyleBackColor = false;
+            this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
             // materialLabel2
             // 
@@ -185,6 +208,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.materialLabel4);
             this.tabPage3.Controls.Add(this.materialLabel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -242,6 +266,38 @@
             this.contentPanel.Size = new System.Drawing.Size(681, 519);
             this.contentPanel.TabIndex = 2;
             // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.materialLabel4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(16, 19);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(104, 19);
+            this.materialLabel4.TabIndex = 1;
+            this.materialLabel4.Text = "NOWY PROFIL";
+            this.materialLabel4.Click += new System.EventHandler(this.materialLabel4_Click);
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.materialLabel5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(32, 29);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(126, 19);
+            this.materialLabel5.TabIndex = 2;
+            this.materialLabel5.Text = "Nowe Ogloszenie";
+            this.materialLabel5.Click += new System.EventHandler(this.materialLabel5_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,5 +340,8 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.Panel contentPanel;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
     }
 }

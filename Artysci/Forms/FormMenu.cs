@@ -78,5 +78,23 @@ namespace Artysci.Forms
         {
 
         }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+            var newSond = new FormNewSond();
+            newSond.Show();
+        }
+
+        private void materialLabel4_Click(object sender, EventArgs e)
+        {
+            var newProfile = new FormNewProfile();
+            newProfile.Show();
+        }
+
+        private void materialLabel5_Click(object sender, EventArgs e)
+        {
+            var newAnoun = new FormNewAnnouncement();
+            newAnoun.Show();
+        }
     }
 }
