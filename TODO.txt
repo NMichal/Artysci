@@ -1,0 +1,21 @@
+1. Dodawanie:
+	- profili (formatka, logika)
+	- og³oszeñ (formatka, logika) - £ukasz (formatki)
+	- sond (formatka, logika) - £ukasz (formatki)
+2. Wyœwietlanie (TAB SELECTOR):
+	- twoje og³oszenia (z applied Announ powinny siê te¿ wyœwietlic kto siê zg³osi³ do tego) (logika i wyglad)
+	- twoje sondy (logika i wyglad)
+	- twoje profile (logika i wyglad)
+3. Wyœwietlene (boczne buttony, user control)
+	- og³oszenia - list view z nazwami klikniecie dwa razy NOWA FORMATKA szczegó³owa (logika i wyglad)
+	- sondy - list view z nazwami sond po kliknieciu dwa razy NOWA FORMATKA, 
+	która bêdzie musia³a byæ czêsciowo generowana automatycznie (mo¿e byæ 2 lub wiêcej opcji do zaznaczenia)[problemowe]
+	(logika i wyglad)
+	- profile - list view z nazwami....NOWA FORMATKA (logika i wyglad)
+
+
+Ficzery:
+- kalkulator z ficzerami
+- modyfikacja profilu usera (miejscowosc, wiek itp., zmiana hasla )
+- wysy³anie wiadomoœci do innych u¿ytkowników
+- mo¿liwoœæ szukania innych u¿ytkowników 
