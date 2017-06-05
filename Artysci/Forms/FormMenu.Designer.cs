@@ -34,18 +34,19 @@
             this.ButtonOgloszenia = new MaterialSkin.Controls.MaterialFlatButton();
             this.TabMain = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.metroListView1 = new MetroFramework.Controls.MetroListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.TextBoxSzukaj = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.contentPanel = new System.Windows.Forms.Panel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.profileControl1 = new Artysci.Forms.ProfileControl();
+            this.sondControl1 = new Artysci.Forms.SondControl();
+            this.announCorntrol1 = new Artysci.Forms.AnnounCorntrol();
             this.PanelMenu.SuspendLayout();
             this.TabMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -127,9 +128,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.announCorntrol1);
             this.tabPage1.Controls.Add(this.materialLabel5);
             this.tabPage1.Controls.Add(this.materialLabel1);
-            this.tabPage1.Controls.Add(this.metroListView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -137,6 +138,22 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Twoje Ogloszenia";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.materialLabel5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(32, 29);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(126, 19);
+            this.materialLabel5.TabIndex = 2;
+            this.materialLabel5.Text = "Nowe Ogloszenie";
+            this.materialLabel5.Click += new System.EventHandler(this.materialLabel5_Click);
             // 
             // materialLabel1
             // 
@@ -151,20 +168,9 @@
             this.materialLabel1.TabIndex = 1;
             this.materialLabel1.Text = "ogloszenia";
             // 
-            // metroListView1
-            // 
-            this.metroListView1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.metroListView1.FullRowSelect = true;
-            this.metroListView1.Location = new System.Drawing.Point(44, 83);
-            this.metroListView1.Name = "metroListView1";
-            this.metroListView1.OwnerDraw = true;
-            this.metroListView1.Size = new System.Drawing.Size(173, 270);
-            this.metroListView1.TabIndex = 0;
-            this.metroListView1.UseCompatibleStateImageBehavior = false;
-            this.metroListView1.UseSelectable = true;
-            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.sondControl1);
             this.tabPage2.Controls.Add(this.materialFlatButton1);
             this.tabPage2.Controls.Add(this.materialLabel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -208,8 +214,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.profileControl1);
             this.tabPage3.Controls.Add(this.materialLabel4);
-            this.tabPage3.Controls.Add(this.materialLabel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -218,18 +224,21 @@
             this.tabPage3.Text = "Twoje Profile";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // materialLabel3
+            // materialLabel4
             // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(236, 70);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(93, 19);
-            this.materialLabel3.TabIndex = 0;
-            this.materialLabel3.Text = "twoje profile";
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.materialLabel4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(16, 19);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(104, 19);
+            this.materialLabel4.TabIndex = 1;
+            this.materialLabel4.Text = "NOWY PROFIL";
+            this.materialLabel4.Click += new System.EventHandler(this.materialLabel4_Click);
             // 
             // materialTabSelector1
             // 
@@ -266,37 +275,39 @@
             this.contentPanel.Size = new System.Drawing.Size(681, 519);
             this.contentPanel.TabIndex = 2;
             // 
-            // materialLabel4
+            // profileControl1
             // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.materialLabel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(16, 19);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(104, 19);
-            this.materialLabel4.TabIndex = 1;
-            this.materialLabel4.Text = "NOWY PROFIL";
-            this.materialLabel4.Click += new System.EventHandler(this.materialLabel4_Click);
+            this.profileControl1.AutoSize = true;
+            this.profileControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.profileControl1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.profileControl1.Location = new System.Drawing.Point(20, 63);
+            this.profileControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.profileControl1.Name = "profileControl1";
+            this.profileControl1.Size = new System.Drawing.Size(274, 43);
+            this.profileControl1.TabIndex = 2;
+            this.profileControl1.Tag = "Open";
             // 
-            // materialLabel5
+            // sondControl1
             // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.materialLabel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(32, 29);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(126, 19);
-            this.materialLabel5.TabIndex = 2;
-            this.materialLabel5.Text = "Nowe Ogloszenie";
-            this.materialLabel5.Click += new System.EventHandler(this.materialLabel5_Click);
+            this.sondControl1.AutoSize = true;
+            this.sondControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.sondControl1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.sondControl1.Location = new System.Drawing.Point(25, 70);
+            this.sondControl1.Name = "sondControl1";
+            this.sondControl1.Size = new System.Drawing.Size(235, 253);
+            this.sondControl1.TabIndex = 2;
+            this.sondControl1.Tag = "Open";
+            // 
+            // announCorntrol1
+            // 
+            this.announCorntrol1.AutoSize = true;
+            this.announCorntrol1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.announCorntrol1.Location = new System.Drawing.Point(52, 82);
+            this.announCorntrol1.Name = "announCorntrol1";
+            this.announCorntrol1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.announCorntrol1.Size = new System.Drawing.Size(216, 53);
+            this.announCorntrol1.TabIndex = 3;
+            this.announCorntrol1.Tag = "Open";
             // 
             // FormMenu
             // 
@@ -336,12 +347,13 @@
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private MaterialSkin.Controls.MaterialSingleLineTextField TextBoxSzukaj;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MetroFramework.Controls.MetroListView metroListView1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.Panel contentPanel;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private ProfileControl profileControl1;
+        private SondControl sondControl1;
+        private AnnounCorntrol announCorntrol1;
     }
 }

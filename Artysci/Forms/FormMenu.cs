@@ -32,7 +32,7 @@ namespace Artysci.Forms
 
         private void materialTabSelector1_Click(object sender, EventArgs e)
         {
-            TabMain.BringToFront();
+
         }
 
         private void ButtonOgloszenia_Click(object sender, EventArgs e)
@@ -75,8 +75,7 @@ namespace Artysci.Forms
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
-        {
-
+        { 
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -96,5 +95,6 @@ namespace Artysci.Forms
             var newAnoun = new FormNewAnnouncement();
             newAnoun.Show();
         }
+
     }
 }
