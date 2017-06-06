@@ -18,6 +18,7 @@ namespace Artysci.UserControls
         private List<Profile> profiles;
         private static ucProfiles _instance;
         private int index;
+        ProfileControl pControl = new ProfileControl();
 
         public static ucProfiles Instance
         {
@@ -53,9 +54,10 @@ namespace Artysci.UserControls
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
+            panel1.Controls.Remove(pControl);
             //if (listView1.SelectedItems != null)
             index = listView1.SelectedIndices[0];
-            ProfileControl pControl = new ProfileControl(profiles[index].type == 1 ? "Organizator" : "Artysta" , profiles[index].genre, profiles[index].descr);
+            pControl = new ProfileControl(profiles[index].type == 1 ? "Organizator" : "Artysta" , profiles[index].genre, profiles[index].descr);
             pControl.OpenControl();
             panel1.Visible = true;
             panel1.Controls.Add(pControl);

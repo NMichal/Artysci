@@ -47,6 +47,8 @@ namespace Artysci.Forms
             LabelOpis.Visible = LabelTworczosc.Visible = LabelTyp.Visible = LabelOpis.Visible = LabelOpis.Visible = LabelProfileType.Visible = LabelType.Visible = TextBoxDescription.Visible = true;
         }
 
+
+
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);

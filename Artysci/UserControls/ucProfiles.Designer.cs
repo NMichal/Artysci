@@ -59,9 +59,9 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(248, 37);
+            this.panel1.Location = new System.Drawing.Point(232, 247);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(392, 463);
+            this.panel1.Size = new System.Drawing.Size(408, 327);
             this.panel1.TabIndex = 2;
             // 
             // ucProfiles
