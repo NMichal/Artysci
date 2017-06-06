@@ -26,6 +26,9 @@ namespace Artysci.Forms
             InitializeComponent();
             SetCustomStyle();
             user = newUser;
+            getUserAnnounces();
+            getUserProfiles();
+            getUserSonds();
         }
 
         private void SetCustomStyle() {
@@ -62,7 +65,6 @@ namespace Artysci.Forms
         {
             List<Announ> annList = new List<Announ>();
             List<AnnounControl>announControls = new List<AnnounControl>();
-            //annList = Database.getAnnouns();
             foreach (Announ ann in Database.getAnnouns())
             {
                 if (ann.login_user == user.login)
@@ -80,6 +82,24 @@ namespace Artysci.Forms
 
         public void getUserSonds()
         {
+            List<sond> sondList = new List<sond>();
+            List<SondControl> sondControls = new List<SondControl>();
+            List<sondChoice> SondChoiceList = new List<sondChoice>();
+            
+            foreach (sond item in Database.GetSonds())
+            {
+                if (item.creator_login == user.login)
+                {
+                    sondList.Add(item);
+                }
+            }
+            for (int i = 0; i < sondList.Count; i++)
+            {
+                SondChoiceList = Database.getSondChoices(sondList[i]);
+                sondControls.Add(new SondControl(sondList[i].name, sondList[i].question, SondChoiceList));
+                sondControls[i].Location = new Point(sondControls[i].Location.X, sondControls[i].Location.Y + i * 40);
+                PanelSonds.Controls.Add(sondControls[i]);
+            }
 
         }
 
