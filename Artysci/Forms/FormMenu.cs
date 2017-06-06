@@ -73,9 +73,9 @@ namespace Artysci.Forms
 
         private void GenerateAnnounList()
         {
-            AnnounCorntrol a1 = new AnnounCorntrol("Nazwa", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
-            AnnounCorntrol a2 = new AnnounCorntrol("Nazwa inna", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
-            AnnounCorntrol a3 = new AnnounCorntrol("Nazwa a tam", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
+            AnnounControl a1 = new AnnounControl("Nazwa", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
+            AnnounControl a2 = new AnnounControl("Nazwa inna", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
+            AnnounControl a3 = new AnnounControl("Nazwa a tam", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
 
             a2.Location = new Point(a2.Location.X, a2.Location.Y + 40);
             a3.Location = new Point(a2.Location.X, a2.Location.Y + 40);

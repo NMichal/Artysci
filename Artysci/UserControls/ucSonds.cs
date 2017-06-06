@@ -53,10 +53,9 @@ namespace Artysci.UserControls
 
         private void listViewSonds_DoubleClick(object sender, EventArgs e)
         {
-            Debug.WriteLine("halo");
             sondPanel.Controls.Remove(sControl);
             index = listViewSonds.SelectedIndices[0];
-            sControl = new SondControl("Penis", SondList[index].question, "Lukasz", "Widuch", "Debil", "Nie pozdrawiam");
+            sControl = new SondControl(SondList[index].name, SondList[index].question, "Lukasz", "Widuch", "Debil", "Nie pozdrawiam");
             sControl.OpenControl();
             sondPanel.Visible = true;
             sondPanel.Controls.Add(sControl);

@@ -35,6 +35,7 @@
             this.type_looking_col = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.descr_col = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date_col = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.annPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -43,10 +44,11 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(290, 13);
+            this.materialLabel1.Location = new System.Drawing.Point(387, 16);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(82, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(102, 24);
             this.materialLabel1.TabIndex = 0;
             this.materialLabel1.Text = "ogłoszenia";
             // 
@@ -58,13 +60,15 @@
             this.type_looking_col,
             this.descr_col,
             this.date_col});
-            this.listView1.Location = new System.Drawing.Point(29, 47);
+            this.listView1.Location = new System.Drawing.Point(39, 58);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(625, 466);
+            this.listView1.Size = new System.Drawing.Size(817, 216);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // login_user_col
             // 
@@ -95,15 +99,24 @@
             this.date_col.Text = "Data dodania";
             this.date_col.Width = 90;
             // 
+            // annPanel
+            // 
+            this.annPanel.Location = new System.Drawing.Point(39, 281);
+            this.annPanel.Name = "annPanel";
+            this.annPanel.Size = new System.Drawing.Size(817, 378);
+            this.annPanel.TabIndex = 2;
+            // 
             // ucAnnouncements
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.annPanel);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.materialLabel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ucAnnouncements";
-            this.Size = new System.Drawing.Size(690, 538);
+            this.Size = new System.Drawing.Size(920, 662);
             this.Load += new System.EventHandler(this.ucAnnouncements_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -119,5 +132,6 @@
         private System.Windows.Forms.ColumnHeader type_looking_col;
         private System.Windows.Forms.ColumnHeader descr_col;
         private System.Windows.Forms.ColumnHeader date_col;
+        private System.Windows.Forms.Panel annPanel;
     }
 }

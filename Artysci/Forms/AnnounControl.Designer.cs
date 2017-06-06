@@ -1,6 +1,6 @@
 ﻿namespace Artysci.Forms
 {
-    partial class AnnounCorntrol
+    partial class AnnounControl
     {
         /// <summary> 
         /// Required designer variable.
