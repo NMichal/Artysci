@@ -9,6 +9,7 @@ namespace Artysci.ObjectsClass
     class sond
     {
         public int id { get; set; }
+        public string name { get; set; }
         public string creator_login { get; set; }
         public string question { get; set; }
         public string date_start { get; set; }
