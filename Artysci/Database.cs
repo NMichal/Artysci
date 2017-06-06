@@ -535,8 +535,8 @@ namespace Artysci
                             int typeIn = reader.GetInt32(2);
                             string descrIn = reader.GetString(3);
                             //string members = reader.GetString(4);
-                            string genreIn = reader.GetString(4);
-                            string exampleIn = reader.GetString(5);
+                            string genreIn = reader.GetString(5);
+                            string exampleIn = reader.GetString(6);
 
                             profile.id = idIn;
                             profile.descr = descrIn;
@@ -585,8 +585,8 @@ namespace Artysci
                             int typeIn = reader.GetInt32(2);
                             string descrIn = reader.GetString(3);
                             //string members = reader.GetString(4);
-                            string genreIn = reader.GetString(4);
-                            string exampleIn = reader.GetString(5);
+                            string genreIn = reader.GetString(5);
+                            string exampleIn = reader.GetString(6);
 
                             profiles.Add(new Profile
                             {

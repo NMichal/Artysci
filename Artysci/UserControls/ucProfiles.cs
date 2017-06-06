@@ -42,9 +42,11 @@ namespace Artysci.UserControls
         }
         public void update()
         {
+            listView1.Items.Clear();
             profiles = Database.getAllProfiles();
             foreach (Profile profile in profiles)
             {
+                Debug.WriteLine(profile.ToString());
                 ListViewItem profile1 = new ListViewItem(profile.name);
                 profile1.SubItems.Add(profile.type.ToString());
                 profile1.SubItems.Add(profile.genre.ToString());
@@ -56,7 +58,7 @@ namespace Artysci.UserControls
         {
             panel1.Controls.Remove(pControl);
             index = listView1.SelectedIndices[0];
-            pControl = new ProfileControl(profiles[index].name,profiles[index].type == 1 ? "Organizator" : "Artysta" , profiles[index].genre, profiles[index].descr);
+            pControl = new ProfileControl(profiles[index].name, profiles[index].type == 1 ? "Organizator" : "Artysta" , profiles[index].genre, profiles[index].descr);
             pControl.OpenControl(); 
             panel1.Visible = true;
             panel1.Controls.Add(pControl);

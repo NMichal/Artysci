@@ -142,9 +142,13 @@ namespace Artysci.Forms
                 contentPanel.Controls.Add(ucProfiles.Instance);
                 ucProfiles.Instance.Dock = DockStyle.Fill;
                 ucProfiles.Instance.BringToFront();
+                ucProfiles.Instance.update();
             }
             else
+            {
+                ucProfiles.Instance.update();
                 ucProfiles.Instance.BringToFront();
+            }
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
