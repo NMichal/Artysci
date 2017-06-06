@@ -76,6 +76,45 @@ namespace Artysci
         }
 
 
+        public static List<sondChoice> getSondChoices(sond sond)
+        {
+            List<sondChoice> choiceList = new List<sondChoice>();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "SELECT * FROM sondChoice where sond_id = @id";
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", sond.id));
+
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            int idIn = reader.GetInt32(0);
+                            int sondIdIn = reader.GetInt32(1);
+                            string answerIn = reader.GetString(2);
+
+                            choiceList.Add(new sondChoice
+                            {
+                                answer = answerIn,
+                                id = idIn,
+                                sond_id = sondIdIn
+                            });
+                        }
+                    }
+                    con.Close();
+                }
+
+            }catch(Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+            return choiceList;
+        }
+
+
         public static void AddSond(sond sond, List<sondChoice> answers)
         {
             using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
