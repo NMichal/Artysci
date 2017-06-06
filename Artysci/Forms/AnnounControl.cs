@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace Artysci.Forms
 {
-    public partial class AnnounCorntrol : UserControl
+    public partial class AnnounControl : UserControl
     {
-        public AnnounCorntrol()
+        public AnnounControl()
         {
             InitializeComponent();
             CloseControl(); 
         }
 
-        public AnnounCorntrol(string name, string lookingFor, string lookingForSpecific, string city, string date, string description)
+        public AnnounControl(string name, string lookingFor, string lookingForSpecific, string city, string date, string description)
         {
             InitializeComponent();
             LabelName.Text = name;

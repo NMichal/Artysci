@@ -65,11 +65,11 @@
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
-    <Compile Include="Forms\AnnounCorntrol.cs">
+    <Compile Include="Forms\AnnounControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\AnnounCorntrol.Designer.cs">
-      <DependentUpon>AnnounCorntrol.cs</DependentUpon>
+    <Compile Include="Forms\AnnounControl.Designer.cs">
+      <DependentUpon>AnnounControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormLogins.cs">
       <SubType>Form</SubType>
@@ -153,8 +153,8 @@
     <EmbeddedResource Include="CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AnnounCorntrol.resx">
-      <DependentUpon>AnnounCorntrol.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AnnounControl.resx">
+      <DependentUpon>AnnounControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLogins.resx">
       <DependentUpon>FormLogins.cs</DependentUpon>
