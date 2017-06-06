@@ -100,6 +100,9 @@ namespace Artysci.Forms
                 Debug.WriteLine(item.ToString());
             }
             Database.AddSond(sonda, answers);
+
+            CustomMessageBox.Show("Sukces", "Sonde dodano pomyślnie");
+            this.Close();
             
         }
     }
