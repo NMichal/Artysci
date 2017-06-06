@@ -197,5 +197,11 @@ namespace Artysci.Forms
         {
             getUserAnnounces();
         }
+
+        private void materialLabel1_Click(object sender, EventArgs e)
+        {
+            FormNewSond sond = new FormNewSond(user);
+            sond.Show();
+        }
     }
 }

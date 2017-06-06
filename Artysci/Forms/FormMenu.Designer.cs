@@ -186,6 +186,7 @@
             this.materialLabel1.Size = new System.Drawing.Size(116, 19);
             this.materialLabel1.TabIndex = 6;
             this.materialLabel1.Text = "+NOWA SONDA";
+            this.materialLabel1.Click += new System.EventHandler(this.materialLabel1_Click);
             // 
             // PanelSonds
             // 

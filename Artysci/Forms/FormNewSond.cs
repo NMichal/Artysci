@@ -38,6 +38,7 @@ namespace Artysci.Forms
             SetVisible();
         }
 
+
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             SetVisible();   
