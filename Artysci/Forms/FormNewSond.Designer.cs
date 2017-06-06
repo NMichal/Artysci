@@ -41,6 +41,8 @@
             this.TextFieldAnswer3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.LabelAnswer3 = new MaterialSkin.Controls.MaterialLabel();
             this.ButtonConfirm = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.TextFieldName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,14 +52,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextFieldQuestion.Depth = 0;
             this.TextFieldQuestion.Hint = "Pytanie";
-            this.TextFieldQuestion.Location = new System.Drawing.Point(17, 95);
+            this.TextFieldQuestion.Location = new System.Drawing.Point(21, 159);
             this.TextFieldQuestion.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextFieldQuestion.Name = "TextFieldQuestion";
             this.TextFieldQuestion.PasswordChar = '\0';
             this.TextFieldQuestion.SelectedText = "";
             this.TextFieldQuestion.SelectionLength = 0;
             this.TextFieldQuestion.SelectionStart = 0;
-            this.TextFieldQuestion.Size = new System.Drawing.Size(260, 23);
+            this.TextFieldQuestion.Size = new System.Drawing.Size(267, 23);
             this.TextFieldQuestion.TabIndex = 0;
             this.TextFieldQuestion.UseSystemPasswordChar = false;
             // 
@@ -67,7 +69,7 @@
             this.LabelQuestion.Depth = 0;
             this.LabelQuestion.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LabelQuestion.Location = new System.Drawing.Point(13, 73);
+            this.LabelQuestion.Location = new System.Drawing.Point(17, 137);
             this.LabelQuestion.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelQuestion.Name = "LabelQuestion";
             this.LabelQuestion.Size = new System.Drawing.Size(58, 19);
@@ -76,7 +78,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(227, 124);
+            this.numericUpDown1.Location = new System.Drawing.Point(233, 188);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             4,
             0,
@@ -103,7 +105,7 @@
             this.LabelCount.Depth = 0;
             this.LabelCount.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LabelCount.Location = new System.Drawing.Point(13, 121);
+            this.LabelCount.Location = new System.Drawing.Point(17, 185);
             this.LabelCount.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelCount.Name = "LabelCount";
             this.LabelCount.Size = new System.Drawing.Size(122, 19);
@@ -116,7 +118,7 @@
             this.LabelAnswer1.Depth = 0;
             this.LabelAnswer1.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelAnswer1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LabelAnswer1.Location = new System.Drawing.Point(17, 154);
+            this.LabelAnswer1.Location = new System.Drawing.Point(17, 213);
             this.LabelAnswer1.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelAnswer1.Name = "LabelAnswer1";
             this.LabelAnswer1.Size = new System.Drawing.Size(94, 19);
@@ -129,14 +131,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextFieldAnswer1.Depth = 0;
             this.TextFieldAnswer1.Hint = "Odpowiedź 1";
-            this.TextFieldAnswer1.Location = new System.Drawing.Point(21, 176);
+            this.TextFieldAnswer1.Location = new System.Drawing.Point(21, 235);
             this.TextFieldAnswer1.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextFieldAnswer1.Name = "TextFieldAnswer1";
             this.TextFieldAnswer1.PasswordChar = '\0';
             this.TextFieldAnswer1.SelectedText = "";
             this.TextFieldAnswer1.SelectionLength = 0;
             this.TextFieldAnswer1.SelectionStart = 0;
-            this.TextFieldAnswer1.Size = new System.Drawing.Size(255, 23);
+            this.TextFieldAnswer1.Size = new System.Drawing.Size(262, 23);
             this.TextFieldAnswer1.TabIndex = 6;
             this.TextFieldAnswer1.UseSystemPasswordChar = false;
             // 
@@ -146,14 +148,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextFieldAnswer2.Depth = 0;
             this.TextFieldAnswer2.Hint = "Odpowiedź 2";
-            this.TextFieldAnswer2.Location = new System.Drawing.Point(21, 229);
+            this.TextFieldAnswer2.Location = new System.Drawing.Point(21, 288);
             this.TextFieldAnswer2.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextFieldAnswer2.Name = "TextFieldAnswer2";
             this.TextFieldAnswer2.PasswordChar = '\0';
             this.TextFieldAnswer2.SelectedText = "";
             this.TextFieldAnswer2.SelectionLength = 0;
             this.TextFieldAnswer2.SelectionStart = 0;
-            this.TextFieldAnswer2.Size = new System.Drawing.Size(255, 23);
+            this.TextFieldAnswer2.Size = new System.Drawing.Size(262, 23);
             this.TextFieldAnswer2.TabIndex = 8;
             this.TextFieldAnswer2.UseSystemPasswordChar = false;
             // 
@@ -163,7 +165,7 @@
             this.LabelAnswer2.Depth = 0;
             this.LabelAnswer2.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelAnswer2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LabelAnswer2.Location = new System.Drawing.Point(17, 207);
+            this.LabelAnswer2.Location = new System.Drawing.Point(17, 266);
             this.LabelAnswer2.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelAnswer2.Name = "LabelAnswer2";
             this.LabelAnswer2.Size = new System.Drawing.Size(94, 19);
@@ -176,14 +178,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextFieldAnswer4.Depth = 0;
             this.TextFieldAnswer4.Hint = "Odpowiedź 4";
-            this.TextFieldAnswer4.Location = new System.Drawing.Point(21, 330);
+            this.TextFieldAnswer4.Location = new System.Drawing.Point(21, 389);
             this.TextFieldAnswer4.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextFieldAnswer4.Name = "TextFieldAnswer4";
             this.TextFieldAnswer4.PasswordChar = '\0';
             this.TextFieldAnswer4.SelectedText = "";
             this.TextFieldAnswer4.SelectionLength = 0;
             this.TextFieldAnswer4.SelectionStart = 0;
-            this.TextFieldAnswer4.Size = new System.Drawing.Size(255, 23);
+            this.TextFieldAnswer4.Size = new System.Drawing.Size(262, 23);
             this.TextFieldAnswer4.TabIndex = 12;
             this.TextFieldAnswer4.UseSystemPasswordChar = false;
             // 
@@ -193,7 +195,7 @@
             this.LabelAnswer4.Depth = 0;
             this.LabelAnswer4.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelAnswer4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LabelAnswer4.Location = new System.Drawing.Point(17, 308);
+            this.LabelAnswer4.Location = new System.Drawing.Point(17, 367);
             this.LabelAnswer4.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelAnswer4.Name = "LabelAnswer4";
             this.LabelAnswer4.Size = new System.Drawing.Size(94, 19);
@@ -206,14 +208,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextFieldAnswer3.Depth = 0;
             this.TextFieldAnswer3.Hint = "Odpowiedź 3";
-            this.TextFieldAnswer3.Location = new System.Drawing.Point(21, 277);
+            this.TextFieldAnswer3.Location = new System.Drawing.Point(21, 336);
             this.TextFieldAnswer3.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextFieldAnswer3.Name = "TextFieldAnswer3";
             this.TextFieldAnswer3.PasswordChar = '\0';
             this.TextFieldAnswer3.SelectedText = "";
             this.TextFieldAnswer3.SelectionLength = 0;
             this.TextFieldAnswer3.SelectionStart = 0;
-            this.TextFieldAnswer3.Size = new System.Drawing.Size(255, 23);
+            this.TextFieldAnswer3.Size = new System.Drawing.Size(262, 23);
             this.TextFieldAnswer3.TabIndex = 10;
             this.TextFieldAnswer3.UseSystemPasswordChar = false;
             // 
@@ -223,7 +225,7 @@
             this.LabelAnswer3.Depth = 0;
             this.LabelAnswer3.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelAnswer3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LabelAnswer3.Location = new System.Drawing.Point(17, 255);
+            this.LabelAnswer3.Location = new System.Drawing.Point(17, 314);
             this.LabelAnswer3.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelAnswer3.Name = "LabelAnswer3";
             this.LabelAnswer3.Size = new System.Drawing.Size(94, 19);
@@ -236,7 +238,7 @@
             this.ButtonConfirm.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ButtonConfirm.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ButtonConfirm.Depth = 0;
-            this.ButtonConfirm.Location = new System.Drawing.Point(190, 50);
+            this.ButtonConfirm.Location = new System.Drawing.Point(206, 47);
             this.ButtonConfirm.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ButtonConfirm.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonConfirm.Name = "ButtonConfirm";
@@ -247,13 +249,45 @@
             this.ButtonConfirm.UseVisualStyleBackColor = false;
             this.ButtonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(17, 89);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(54, 19);
+            this.materialLabel1.TabIndex = 15;
+            this.materialLabel1.Text = "Nazwa";
+            // 
+            // TextFieldName
+            // 
+            this.TextFieldName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextFieldName.Depth = 0;
+            this.TextFieldName.Hint = "Nazwa";
+            this.TextFieldName.Location = new System.Drawing.Point(21, 111);
+            this.TextFieldName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TextFieldName.Name = "TextFieldName";
+            this.TextFieldName.PasswordChar = '\0';
+            this.TextFieldName.SelectedText = "";
+            this.TextFieldName.SelectionLength = 0;
+            this.TextFieldName.SelectionStart = 0;
+            this.TextFieldName.Size = new System.Drawing.Size(267, 23);
+            this.TextFieldName.TabIndex = 14;
+            this.TextFieldName.UseSystemPasswordChar = false;
+            // 
             // FormNewSond
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(300, 361);
+            this.ClientSize = new System.Drawing.Size(307, 426);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.TextFieldName);
             this.Controls.Add(this.ButtonConfirm);
             this.Controls.Add(this.TextFieldAnswer4);
             this.Controls.Add(this.LabelAnswer4);
@@ -291,5 +325,7 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField TextFieldAnswer3;
         private MaterialSkin.Controls.MaterialLabel LabelAnswer3;
         private MaterialSkin.Controls.MaterialFlatButton ButtonConfirm;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField TextFieldName;
     }
 }

@@ -95,9 +95,10 @@ namespace Artysci
                     }
 
                     using (SqlCommand command = new SqlCommand(
-                        "INSERT INTO sond VALUES(@id, @creator_login, @question, @date_start, @date_end)", con))
+                        "INSERT INTO sond VALUES(@id, @name, @creator_login, @question, @date_start, @date_end)", con))
                     {
                         command.Parameters.Add(new SqlParameter("id", nextId));
+                        command.Parameters.Add(new SqlParameter("name", sond.name));
                         command.Parameters.Add(new SqlParameter("creator_login", sond.creator_login));
                         command.Parameters.Add(new SqlParameter("question", sond.question));
                         command.Parameters.Add(new SqlParameter("date_start", sond.date_start));

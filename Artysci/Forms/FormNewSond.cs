@@ -64,6 +64,7 @@ namespace Artysci.Forms
         private bool isFormCorrect()
         {
             if (TextFieldQuestion.Text.Length < 1) return false;
+            if (TextFieldName.Text.Length < 1) return false;
             for (int i = 0; i < value; i++)
             {
                 if (textFields[i].Text.Length < 1) return false;
@@ -86,6 +87,7 @@ namespace Artysci.Forms
             sonda.date_start = DateTime.Today.Date.ToString();
             sonda.date_end = DateTime.Today.AddDays(7).Date.ToString();
             sonda.creator_login = user.login;
+            sonda.name = TextFieldName.Text;
 
             for (int i = 0; i < value; i++)
             {
