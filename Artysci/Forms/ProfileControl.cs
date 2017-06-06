@@ -21,6 +21,7 @@ namespace Artysci.Forms
         {
             InitializeComponent();
             LabelName.Text = nameString;
+            LabelName.Visible = true;
             LabelProfileType.Text = ProfileTypeString;
             LabelType.Text = TypeString;
             TextBoxDescription.Text = Description;
