@@ -84,7 +84,7 @@ namespace Artysci.Forms
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
-            var newSond = new FormNewSond();
+            var newSond = new FormNewSond(user);
             newSond.Show();
         }
 

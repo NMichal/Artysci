@@ -36,9 +36,9 @@ namespace Artysci
             }
 
             //insert test
-            sond s = new sond() { creator_login = "wstaw", question = "tetst2?", date_end = DateTime.Now.ToString(),
-                date_start = DateTime.Now.ToString() };
-            Database.AddSond(s);
+            //sond s = new sond() { creator_login = "wstaw", question = "tetst2?", date_end = DateTime.Now.ToString(),
+            //    date_start = DateTime.Now.ToString() };
+            //Database.AddSond(s);
 
             //update test
             sond upd = Database.GetSond("where id = 1")[0];

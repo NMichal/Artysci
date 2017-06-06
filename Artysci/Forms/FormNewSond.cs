@@ -9,16 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Artysci.ObjectsClass;
-
+using System.Diagnostics;
 
 namespace Artysci.Forms
 {
     public partial class FormNewSond : MaterialForm
     {
+        private usersTab user;
         int value;
         List<MaterialLabel> answerLabels = new List<MaterialLabel>();
         List<MaterialSingleLineTextField> textFields = new List<MaterialSingleLineTextField>();
-        public FormNewSond()
+        public FormNewSond(usersTab newUser)
         {
             InitializeComponent();
             answerLabels.Add(LabelAnswer1);
@@ -31,6 +32,8 @@ namespace Artysci.Forms
             textFields.Add(TextFieldAnswer2);
             textFields.Add(TextFieldAnswer3);
             textFields.Add(TextFieldAnswer4);
+
+            user = newUser;
 
             SetVisible();
         }
@@ -77,8 +80,26 @@ namespace Artysci.Forms
 
         private void addSond()
         {
+            List<sondChoice> answers = new List<sondChoice>();
             sond sonda = new sond();
             sonda.question = TextFieldQuestion.Text;
+            sonda.date_start = DateTime.Today.Date.ToString();
+            sonda.date_end = DateTime.Today.AddDays(7).Date.ToString();
+            sonda.creator_login = user.login;
+
+            for (int i = 0; i < value; i++)
+            {
+                answers.Add(new sondChoice
+                {
+                    answer = textFields[i].Text
+                });
+            }
+            Debug.WriteLine(sonda.ToString());
+            foreach (sondChoice item in answers)
+            {
+                Debug.WriteLine(item.ToString());
+            }
+            Database.AddSond(sonda, answers);
             
         }
     }
