@@ -90,7 +90,7 @@ namespace Artysci.Forms
 
         private void materialLabel4_Click(object sender, EventArgs e)
         {
-            var newProfile = new FormNewProfile();
+            var newProfile = new FormNewProfile(user);
             newProfile.Show();
         }
 

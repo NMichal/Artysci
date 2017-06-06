@@ -75,7 +75,7 @@ namespace Artysci.Forms
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
             if (!isFormCorrect()) CustomMessageBox.Show("Błąd", "Nie poprawnie wypełniony formularz");
-            addSond();
+            else addSond();
         }
 
         private void addSond()

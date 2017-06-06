@@ -610,8 +610,8 @@ namespace Artysci
                 try
                 {
                     con.Open();
-                    string qry = @"INSERT INTO profile(id, name, type, descr, genre, example) 
-                                          VALUES(@id, @name, @type, @descr, @genre, @example)";
+                    string qry = @"INSERT INTO profile(id, name, type, descr, genre, example, members) 
+                                          VALUES(@id, @name, @type, @descr, @genre, @example, @memebers)";
 
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {
@@ -636,10 +636,15 @@ namespace Artysci
                         command.Parameters.Add(new SqlParameter("id", nextId));
                         command.Parameters.Add(new SqlParameter("name", profile.name));
                         command.Parameters.Add(new SqlParameter("type", profile.type));
+                        command.Parameters.Add(new SqlParameter("descr", profile.descr));
                         command.Parameters.Add(new SqlParameter("genre", profile.genre));
-                        command.Parameters.Add(new SqlParameter("example", profile.example));
+                        command.Parameters.Add(new SqlParameter("example", "null"));
+                        command.Parameters.Add(new SqlParameter("memebers", "null"));
+
 
                         command.ExecuteNonQuery();
+
+                        addProfileLogin(nextId, user.login);
                     }
                 }catch (Exception e)
                 {
@@ -647,7 +652,7 @@ namespace Artysci
                 }
 
                 con.Close();
-                addProfileLogin(profile.id, user.login);
+                
 
             }
         }
@@ -662,7 +667,7 @@ namespace Artysci
                 con.Open();
                 try
                 {
-                    string qry = "INSERT INTO profileLogin(id, login_user) VALUES(@id, @login)";
+                    string qry = "INSERT INTO profileLogin(id_profile, login_user) VALUES(@id, @login)";
 
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {

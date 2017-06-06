@@ -68,7 +68,7 @@
             this.TextBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxName.Depth = 0;
             this.TextBoxName.Hint = "nazwa artysty/organizatora";
-            this.TextBoxName.Location = new System.Drawing.Point(72, 84);
+            this.TextBoxName.Location = new System.Drawing.Point(75, 84);
             this.TextBoxName.MouseState = MaterialSkin.MouseState.HOVER;
             this.TextBoxName.Name = "TextBoxName";
             this.TextBoxName.PasswordChar = '\0';
@@ -110,8 +110,7 @@
             this.ComboBoxType.FormattingEnabled = true;
             this.ComboBoxType.Items.AddRange(new object[] {
             "Organizator",
-            "Artysta",
-            "Kombinator"});
+            "Artysta"});
             this.ComboBoxType.Location = new System.Drawing.Point(130, 117);
             this.ComboBoxType.Name = "ComboBoxType";
             this.ComboBoxType.Size = new System.Drawing.Size(121, 21);
@@ -163,6 +162,7 @@
             this.ButtonMake.TabIndex = 8;
             this.ButtonMake.Text = "STWÓRZ";
             this.ButtonMake.UseVisualStyleBackColor = true;
+            this.ButtonMake.Click += new System.EventHandler(this.ButtonMake_Click);
             // 
             // FormNewProfile
             // 
