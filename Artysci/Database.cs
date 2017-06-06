@@ -490,7 +490,60 @@ namespace Artysci
 
             return profile;
         }
+        public static List<Profile> getAllProfiles(int id = 0)
+        {
+            List<Profile> profiles = new List<Profile>();
 
+            using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+            {
+                try
+                {
+                    con.Open();
+                    string qry = "SELECT * FROM profile ";
+                    if (id != 0) qry += "where id = @id";
+                    qry += "ORDER BY id";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+
+                        if (id != 0) command.Parameters.Add(new SqlParameter("id", id));
+
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            int idIn = reader.GetInt32(0);
+                            string nameIn = reader.GetString(1);
+                            int typeIn = reader.GetInt32(2);
+                            string descrIn = reader.GetString(3);
+                            //string members = reader.GetString(4);
+                            string genreIn = reader.GetString(4);
+                            string exampleIn = reader.GetString(5);
+
+                            profiles.Add(new Profile
+                            {
+                                id = idIn,
+                                descr = descrIn,
+                                name = nameIn,
+                                type = typeIn,
+                                genre = genreIn,
+                                example = exampleIn
+                            });
+                            
+                        }
+
+                    }
+
+                    con.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Blad, " + e);
+                }
+
+            }
+
+            return profiles;
+        }
         /// <summary>
         /// Pobieranie wszystkich id profilów danego uzytkownika
         /// </summary>
