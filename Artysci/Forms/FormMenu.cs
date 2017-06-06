@@ -9,15 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Artysci.UserControls;
+using Artysci.ObjectsClass;
 
 namespace Artysci.Forms
 {
     public partial class FormMenu : MaterialForm
     {
-        public FormMenu()
+        private usersTab user;
+        public FormMenu(usersTab newUser)
         {
             InitializeComponent();
             SetCustomStyle();
+            user = newUser;
         }
 
         private void SetCustomStyle() {
@@ -146,19 +149,19 @@ namespace Artysci.Forms
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
-            var newSond = new FormNewSond();
+            var newSond = new FormNewSond(user);
             newSond.Show();
         }
 
         private void materialLabel4_Click(object sender, EventArgs e)
         {
-            var newProfile = new FormNewProfile();
+            var newProfile = new FormNewProfile(user);
             newProfile.Show();
         }
 
         private void materialLabel5_Click(object sender, EventArgs e)
         {
-            var newAnoun = new FormNewAnnouncement();
+            var newAnoun = new FormNewAnnouncement(user);
             newAnoun.Show();
         }
 
