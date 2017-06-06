@@ -37,7 +37,7 @@ namespace Artysci.Forms
 
             if (PasswordTextBox.Text == user.password)
             {
-                var mainForm = new FormMenu();
+                var mainForm = new FormMenu(user);
                 mainForm.Show();
                 this.Visible = false;
 

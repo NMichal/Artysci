@@ -74,7 +74,7 @@ namespace Artysci
         }
 
 
-        public static void AddSond(sond sond)
+        public static void AddSond(sond sond, List<sondChoice> answers)
         {
             using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
             {
@@ -91,7 +91,6 @@ namespace Artysci
                     {
                         nextId = 1;
                     }
-                    //int nextId = sonds.OrderByDescending(u => u.id).FirstOrDefault().id + 1;
 
                     using (SqlCommand command = new SqlCommand(
                         "INSERT INTO sond VALUES(@id, @creator_login, @question, @date_start, @date_end)", con))
@@ -103,12 +102,76 @@ namespace Artysci
                         command.Parameters.Add(new SqlParameter("date_end", sond.date_end));
                         command.ExecuteNonQuery();
                     }
+
+                    addSondChoice(answers, nextId);
                 }
                 catch
                 {
                     Console.WriteLine("Count not insert.");
                 }
                 con.Close();
+            }
+        }
+        
+        
+        public static sondChoice getNewSondChoiceId()
+        {
+            sondChoice newId = new sondChoice();
+            try
+            { 
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+
+                    using (SqlCommand command = new SqlCommand("SELECT max(sond_id) FROM sondChoice", con))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+                        
+                        while(reader.Read())
+                        {
+                            newId.id = reader.IsDBNull(0) ?  1 : reader.GetInt32(0) + 1;
+                        }
+                    }
+
+                        con.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+            return newId;
+        }
+        
+            
+        public static void addSondChoice(List<sondChoice> answers, int idSond)
+        {
+            try
+            {
+                int nextid = getNewSondChoiceId().id;
+
+                foreach (sondChoice item in answers)
+                {
+                    using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                    {
+                        con.Open();
+                        string qry = "INSERT INTO sondChoice(id, sond_id, answer) VALUES (@id, @sond_id, @answer)";
+                        using (SqlCommand command = new SqlCommand(qry, con))
+                        {
+                            command.Parameters.Add(new SqlParameter("id", nextid));
+                            command.Parameters.Add(new SqlParameter("sond_id", idSond));
+                            command.Parameters.Add(new SqlParameter("answer", item.answer));
+
+                            command.ExecuteNonQuery();
+                        }
+
+                        con.Close();
+                    }
+                    nextid++;
+                }
+            } catch (Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
             }
         }
 
@@ -408,17 +471,19 @@ namespace Artysci
                         nextId = 1;
                     }
 
-                    string qry = @"INSERT INTO Announcements(id, login_user, profile_id, date, descr, type_anoun, type_looking)  
-                                              VALUES (@id, @login_user, @profile_id, @date, @descr, @type_anoun, @type_looking)";
+                    string qry = @"INSERT INTO Announcements(id, login_user, profile_id, date, descr, type_anoun, type_looking, title, town)  
+                                              VALUES (@id, @login_user, @profile_id, @date, @descr, @type_anoun, @type_looking, @title, @town)";
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {
                         command.Parameters.Add(new SqlParameter("id", nextId));
                         command.Parameters.Add(new SqlParameter("login_user", announ.login_user));
-                        command.Parameters.Add(new SqlParameter("profie_id", announ.profile_id));
+                        command.Parameters.Add(new SqlParameter("profile_id", announ.profile_id));
                         command.Parameters.Add(new SqlParameter("date", announ.date));
                         command.Parameters.Add(new SqlParameter("descr", announ.descr));
                         command.Parameters.Add(new SqlParameter("type_anoun", announ.type_anoun));
                         command.Parameters.Add(new SqlParameter("type_looking", announ.type_looking));
+                        command.Parameters.Add(new SqlParameter("title", announ.title));
+                        command.Parameters.Add(new SqlParameter("town", announ.town));
 
                         command.ExecuteNonQuery();
                     }
@@ -451,7 +516,7 @@ namespace Artysci
                     con.Open();
                     string qry = "SELECT * FROM profile ";
                     if (id != 0) qry += "where id = @id";
-                    qry += "ORDER BY id";
+                    qry += " ORDER BY id";
 
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {
@@ -545,8 +610,8 @@ namespace Artysci
                 try
                 {
                     con.Open();
-                    string qry = @"INSERT INTO profile(id, name, type, descr, genre, example) 
-                                          VALUES(@id, @name, @type, @descr, @genre, @example)";
+                    string qry = @"INSERT INTO profile(id, name, type, descr, genre, example, members) 
+                                          VALUES(@id, @name, @type, @descr, @genre, @example, @memebers)";
 
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {
@@ -571,10 +636,15 @@ namespace Artysci
                         command.Parameters.Add(new SqlParameter("id", nextId));
                         command.Parameters.Add(new SqlParameter("name", profile.name));
                         command.Parameters.Add(new SqlParameter("type", profile.type));
+                        command.Parameters.Add(new SqlParameter("descr", profile.descr));
                         command.Parameters.Add(new SqlParameter("genre", profile.genre));
-                        command.Parameters.Add(new SqlParameter("example", profile.example));
+                        command.Parameters.Add(new SqlParameter("example", "null"));
+                        command.Parameters.Add(new SqlParameter("memebers", "null"));
+
 
                         command.ExecuteNonQuery();
+
+                        addProfileLogin(nextId, user.login);
                     }
                 }catch (Exception e)
                 {
@@ -582,7 +652,7 @@ namespace Artysci
                 }
 
                 con.Close();
-                addProfileLogin(profile.id, user.login);
+                
 
             }
         }
@@ -597,7 +667,7 @@ namespace Artysci
                 con.Open();
                 try
                 {
-                    string qry = "INSERT INTO profileLogin(id, login_user) VALUES(@id, @login)";
+                    string qry = "INSERT INTO profileLogin(id_profile, login_user) VALUES(@id, @login)";
 
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {

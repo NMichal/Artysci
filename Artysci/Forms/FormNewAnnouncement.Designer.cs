@@ -41,6 +41,8 @@
             this.TextBoxDescription = new System.Windows.Forms.RichTextBox();
             this.TextBoxCity = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.ButtonMake = new MaterialSkin.Controls.MaterialFlatButton();
+            this.comboBoxProfile = new System.Windows.Forms.ComboBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // LabelName
@@ -114,7 +116,7 @@
             this.LabelDescription.Depth = 0;
             this.LabelDescription.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LabelDescription.Location = new System.Drawing.Point(13, 218);
+            this.LabelDescription.Location = new System.Drawing.Point(20, 258);
             this.LabelDescription.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelDescription.Name = "LabelDescription";
             this.LabelDescription.Size = new System.Drawing.Size(39, 19);
@@ -134,7 +136,7 @@
             this.TextBoxName.SelectedText = "";
             this.TextBoxName.SelectionLength = 0;
             this.TextBoxName.SelectionStart = 0;
-            this.TextBoxName.Size = new System.Drawing.Size(214, 23);
+            this.TextBoxName.Size = new System.Drawing.Size(530, 23);
             this.TextBoxName.TabIndex = 6;
             this.TextBoxName.UseSystemPasswordChar = false;
             // 
@@ -148,7 +150,7 @@
             "Osoby"});
             this.ComboBoxTypeAnoun.Location = new System.Drawing.Point(134, 102);
             this.ComboBoxTypeAnoun.Name = "ComboBoxTypeAnoun";
-            this.ComboBoxTypeAnoun.Size = new System.Drawing.Size(154, 21);
+            this.ComboBoxTypeAnoun.Size = new System.Drawing.Size(470, 21);
             this.ComboBoxTypeAnoun.TabIndex = 7;
             // 
             // TextBoxTypeLooking
@@ -164,7 +166,7 @@
             this.TextBoxTypeLooking.SelectedText = "";
             this.TextBoxTypeLooking.SelectionLength = 0;
             this.TextBoxTypeLooking.SelectionStart = 0;
-            this.TextBoxTypeLooking.Size = new System.Drawing.Size(148, 23);
+            this.TextBoxTypeLooking.Size = new System.Drawing.Size(464, 23);
             this.TextBoxTypeLooking.TabIndex = 8;
             this.TextBoxTypeLooking.UseSystemPasswordChar = false;
             // 
@@ -183,9 +185,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TextBoxDescription.Location = new System.Drawing.Point(17, 241);
+            this.TextBoxDescription.Location = new System.Drawing.Point(18, 280);
             this.TextBoxDescription.Name = "TextBoxDescription";
-            this.TextBoxDescription.Size = new System.Drawing.Size(271, 113);
+            this.TextBoxDescription.Size = new System.Drawing.Size(586, 215);
             this.TextBoxDescription.TabIndex = 11;
             this.TextBoxDescription.Text = "";
             // 
@@ -202,7 +204,7 @@
             this.TextBoxCity.SelectedText = "";
             this.TextBoxCity.SelectionLength = 0;
             this.TextBoxCity.SelectionStart = 0;
-            this.TextBoxCity.Size = new System.Drawing.Size(213, 23);
+            this.TextBoxCity.Size = new System.Drawing.Size(529, 23);
             this.TextBoxCity.TabIndex = 12;
             this.TextBoxCity.UseSystemPasswordChar = false;
             // 
@@ -212,7 +214,7 @@
             this.ButtonMake.AutoSize = true;
             this.ButtonMake.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ButtonMake.Depth = 0;
-            this.ButtonMake.Location = new System.Drawing.Point(221, 358);
+            this.ButtonMake.Location = new System.Drawing.Point(537, 499);
             this.ButtonMake.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ButtonMake.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonMake.Name = "ButtonMake";
@@ -223,11 +225,36 @@
             this.ButtonMake.UseVisualStyleBackColor = true;
             this.ButtonMake.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
+            // comboBoxProfile
+            // 
+            this.comboBoxProfile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxProfile.FormattingEnabled = true;
+            this.comboBoxProfile.Location = new System.Drawing.Point(69, 213);
+            this.comboBoxProfile.Name = "comboBoxProfile";
+            this.comboBoxProfile.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxProfile.TabIndex = 14;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(14, 215);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(45, 19);
+            this.materialLabel1.TabIndex = 15;
+            this.materialLabel1.Text = "Profil";
+            // 
             // FormNewAnnouncement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 400);
+            this.ClientSize = new System.Drawing.Size(616, 541);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.comboBoxProfile);
             this.Controls.Add(this.ButtonMake);
             this.Controls.Add(this.TextBoxCity);
             this.Controls.Add(this.TextBoxDescription);
@@ -263,5 +290,7 @@
         private System.Windows.Forms.RichTextBox TextBoxDescription;
         private MaterialSkin.Controls.MaterialSingleLineTextField TextBoxCity;
         private MaterialSkin.Controls.MaterialFlatButton ButtonMake;
+        private System.Windows.Forms.ComboBox comboBoxProfile;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }
