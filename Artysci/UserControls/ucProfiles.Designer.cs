@@ -30,6 +30,7 @@
         {
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -56,11 +57,19 @@
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(248, 37);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(392, 463);
+            this.panel1.TabIndex = 2;
+            // 
             // ucProfiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.materialLabel1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -75,5 +84,6 @@
 
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

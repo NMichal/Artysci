@@ -51,5 +51,6 @@ namespace Artysci.Forms
         {
             base.OnPaint(pe);
         }
+
     }
 }

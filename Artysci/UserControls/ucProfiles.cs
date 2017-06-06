@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Artysci.ObjectsClass;
 using System.Diagnostics;
+using Artysci.Forms;
 
 namespace Artysci.UserControls
 {
@@ -30,6 +31,7 @@ namespace Artysci.UserControls
         public ucProfiles()
         {
             InitializeComponent();
+            panel1.Visible = false;
             listView1.View = View.Details;
             listView1.Columns.Add("Name", 60, HorizontalAlignment.Left);
             listView1.Columns.Add("Type", 60, HorizontalAlignment.Left);
@@ -53,7 +55,11 @@ namespace Artysci.UserControls
         {
             //if (listView1.SelectedItems != null)
             index = listView1.SelectedIndices[0];
-
+            ProfileControl pControl = new ProfileControl(profiles[index].type == 1 ? "Organizator" : "Artysta" , profiles[index].genre, profiles[index].descr);
+            pControl.OpenControl();
+            panel1.Visible = true;
+            panel1.Controls.Add(pControl);
+           
 
         }
     }
