@@ -500,6 +500,123 @@ namespace Artysci
         }
 
         /// <summary>
+        /// Pobiera ogłoszenie o podanym id
+        /// </summary>
+        /// <param name="id">int, id ogłoszenia</param>
+        /// <returns>obiekt Announ</returns>
+        public static Announ getAnnounById(int id)
+        {
+            Announ ann = new Announ();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "SELECT * FROM Announcements where id = @id";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", id));
+                        SqlDataReader reader = command.ExecuteReader();
+                        
+                        while(reader.Read())
+                        {
+                            int idIn = reader.GetInt32(0);
+                            string loginIn = reader.GetString(1);
+                            string titleIn = reader.GetString(2);
+                            string townIn = reader.GetString(3);
+                            int profileIdIn = reader.GetInt32(4);
+                            string dateIn = reader.GetString(5);
+                            string descrIn = reader.GetString(6);
+                            string type_anounIn = reader.GetString(7);
+                            string type_lookingIn = reader.GetString(8);
+
+                            ann = new Announ()
+                            {
+                                id = idIn,
+                                login_user = loginIn,
+                                date = dateIn,
+                                descr = descrIn,
+                                profile_id = profileIdIn,
+                                type_anoun = type_anounIn,
+                                type_looking = type_lookingIn,
+                                town = townIn,
+                                title = titleIn
+                            };
+                        }
+
+                    }
+                    con.Close();
+                }
+            }catch(Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+
+            return ann;
+        }
+
+        /// <summary>
+        /// Sprawdza czy użytkownik zgłosił się do ogłoszenia
+        /// </summary>
+        /// <returns></returns>
+        public static bool isUserApplied(int id, usersTab user)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "SELECT * FROM appliedAnnoun where user_login = @login AND Announ_id = @id";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("login",user.login));
+                        command.Parameters.Add(new SqlParameter("id", id));
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if(reader.Read())
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }catch(Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+            return false;
+        }
+
+
+        public static void addApplyAnnoun(appliedAnnoun app)
+        {
+            try
+            { 
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "INSERT INTO appliedAnnoun(user_login, Announ_id, agreed) VALUES(@login, @id, @agreed)";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("login", app.user_login));
+                        command.Parameters.Add(new SqlParameter("id", app.announ_id));
+                        command.Parameters.Add(new SqlParameter("agreed", app.agreed));
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    con.Close();
+                }
+            }catch(Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+        }
+
+        /// <summary>
         /// Dodaje ogloszenie do bazy
         /// </summary>
         /// <param name="announ"></param>

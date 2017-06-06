@@ -41,15 +41,15 @@
             this.LabelDate = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.TextBoxDecription = new System.Windows.Forms.RichTextBox();
-            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ButtonOdpowiedz = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -194,7 +194,7 @@
             // 
             // TextBoxDecription
             // 
-            this.TextBoxDecription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TextBoxDecription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxDecription.Location = new System.Drawing.Point(10, 188);
             this.TextBoxDecription.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
@@ -204,20 +204,21 @@
             this.TextBoxDecription.TabIndex = 10;
             this.TextBoxDecription.Text = "";
             // 
-            // materialFlatButton1
+            // ButtonOdpowiedz
             // 
-            this.materialFlatButton1.AutoSize = true;
-            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(21, 295);
-            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 10);
-            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton1.Name = "materialFlatButton1";
-            this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(90, 36);
-            this.materialFlatButton1.TabIndex = 11;
-            this.materialFlatButton1.Text = "ODPOWIEDZ";
-            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            this.ButtonOdpowiedz.AutoSize = true;
+            this.ButtonOdpowiedz.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ButtonOdpowiedz.Depth = 0;
+            this.ButtonOdpowiedz.Location = new System.Drawing.Point(21, 295);
+            this.ButtonOdpowiedz.Margin = new System.Windows.Forms.Padding(4, 6, 4, 10);
+            this.ButtonOdpowiedz.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonOdpowiedz.Name = "ButtonOdpowiedz";
+            this.ButtonOdpowiedz.Primary = false;
+            this.ButtonOdpowiedz.Size = new System.Drawing.Size(90, 36);
+            this.ButtonOdpowiedz.TabIndex = 11;
+            this.ButtonOdpowiedz.Text = "ODPOWIEDZ";
+            this.ButtonOdpowiedz.UseVisualStyleBackColor = true;
+            this.ButtonOdpowiedz.Click += new System.EventHandler(this.ButtonOdpowiedz_Click);
             // 
             // pictureBox1
             // 
@@ -236,7 +237,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.materialFlatButton1);
+            this.Controls.Add(this.ButtonOdpowiedz);
             this.Controls.Add(this.TextBoxDecription);
             this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.LabelDate);
@@ -273,7 +274,8 @@
         private MaterialSkin.Controls.MaterialLabel LabelDate;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private System.Windows.Forms.RichTextBox TextBoxDecription;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private MaterialSkin.Controls.MaterialFlatButton ButtonOdpowiedz;
+
     }
 }

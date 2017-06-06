@@ -19,6 +19,7 @@ namespace Artysci.UserControls
         private List<Announ> announList;
         AnnounControl aControl;
         int index;
+        usersTab user;
 
         public static ucAnnouncements Instance
         {
@@ -34,10 +35,6 @@ namespace Artysci.UserControls
             InitializeComponent();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         ///Wykonywany w momencie otwarcia strony 'Ogłoszenia'.
         ///Pobiera ogłoszenia z bazy i wyświetla je w ListView.
@@ -68,13 +65,17 @@ namespace Artysci.UserControls
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            Debug.WriteLine("halo");
             annPanel.Controls.Remove(aControl);
             index = listView1.SelectedIndices[0];
-            aControl = new AnnounControl(announList[index].title, announList[index].type_anoun, announList[index].type_looking, announList[index].town, announList[index].date, announList[index].descr);
+            aControl = new AnnounControl(announList[index].title, announList[index].type_anoun, announList[index].type_looking, announList[index].town, announList[index].date, announList[index].descr, announList[index].id, user);
             aControl.OpenControl();
             annPanel.Visible = true;
             annPanel.Controls.Add(aControl);
+        }
+
+        public void setUser(usersTab newUser)
+        {
+            user = newUser;
         }
     }
 }
