@@ -53,6 +53,7 @@ namespace Artysci.Forms
                     GenerateAnnounList();
                     break;
             }
+            TabMain.BringToFront();
         }
 
         private void GenerateProfiles()

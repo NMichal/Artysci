@@ -22,18 +22,18 @@ namespace Artysci
             Database.ConnectDatabase(); //Podłączenie bazy przed wywołaniem jakiejkolwiek formatki
 
             //>>>>>>>>>---------------TEST--------------------------------<<<<<<<<<
-            List<sond> sondAll = Database.GetSond(); //Test funkcji pobierającej sondy jako liste obiektów
-            foreach (sond sond in sondAll)
-            {
-                Debug.WriteLine(sond.ToString());
-            }
+            //List<sond> sondAll = Database.GetSond(); //Test funkcji pobierającej sondy jako liste obiektów
+            //foreach (sond sond in sondAll)
+            //{
+            //    Debug.WriteLine(sond.ToString());
+            //}
 
 
-            List<sond> sondWhere = Database.GetSond("where id in (1,2)");
-            foreach (sond sond in sondWhere)
-            {
-                Debug.WriteLine(sond.ToString());
-            }
+            //List<sond> sondWhere = Database.GetSond("where id in (1,2)");
+            //foreach (sond sond in sondWhere)
+            //{
+            //    Debug.WriteLine(sond.ToString());
+            //}
 
             //insert test
             //sond s = new sond() { creator_login = "wstaw", question = "tetst2?", date_end = DateTime.Now.ToString(),
@@ -41,20 +41,20 @@ namespace Artysci
             //Database.AddSond(s);
 
             //update test
-            sond upd = Database.GetSond("where id = 1")[0];
-            upd.question = "update test";
-            Database.UpdateSond(upd);
+            //sond upd = Database.GetSond("where id = 1")[0];
+            //upd.question = "update test";
+            //Database.UpdateSond(upd);
 
             //Delete test
-            try
-            {
-                sond deletesond = Database.GetSond("where id = 3")[0];
-                Database.DeleteSond(deletesond);
-            }
-            catch
-            {
-                Debug.WriteLine("Brak obiektu");
-            }
+            //try
+            //{
+            //    sond deletesond = Database.GetSond("where id = 3")[0];
+            //    Database.DeleteSond(deletesond);
+            //}
+            //catch
+            //{
+            //    Debug.WriteLine("Brak obiektu");
+            //}
 
 
             //Test userTab
