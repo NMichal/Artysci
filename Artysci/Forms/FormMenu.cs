@@ -74,7 +74,7 @@ namespace Artysci.Forms
             }
             for (int i = 0; i < annList.Count; i++)
             {
-                announControls.Add(new AnnounControl(annList[i].title, annList[i].type_anoun, annList[i].type_looking, annList[i].town, annList[i].date, annList[i].descr));
+                announControls.Add(new AnnounControl(annList[i].title, annList[i].type_anoun, annList[i].type_looking, annList[i].town, annList[i].date, annList[i].descr, annList[i].id));
                 announControls[i].Location = new Point(announControls[i].Location.X, announControls[i].Location.Y + i * 40);
                 PanelAnnoun.Controls.Add(announControls[i]);
             }
@@ -133,6 +133,7 @@ namespace Artysci.Forms
             }
             else
                 ucAnnouncements.Instance.BringToFront();
+            ucAnnouncements.Instance.setUser(user);
         }
 
         private void ButtonSondy_Click(object sender, EventArgs e)

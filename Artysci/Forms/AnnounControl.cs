@@ -12,13 +12,14 @@ namespace Artysci.Forms
 {
     public partial class AnnounControl : UserControl
     {
+        int id;
         public AnnounControl()
         {
             InitializeComponent();
             CloseControl(); 
         }
 
-        public AnnounControl(string name, string lookingFor, string lookingForSpecific, string city, string date, string description)
+        public AnnounControl(string name, string lookingFor, string lookingForSpecific, string city, string date, string description, int announid)
         {
             InitializeComponent();
             LabelName.Text = name;
@@ -27,6 +28,7 @@ namespace Artysci.Forms
             LabelCity.Text = city;
             LabelDate.Text = date;
             TextBoxDecription.Text = description;
+            id = announid;
 
             CloseControl();
         }
