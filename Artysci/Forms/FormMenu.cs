@@ -21,6 +21,9 @@ namespace Artysci.Forms
             InitializeComponent();
             SetCustomStyle();
             user = newUser;
+            GenerateAnnounList();
+            GenerateProfiles();
+            GenerateSondList();
         }
 
         private void SetCustomStyle() {
