@@ -37,6 +37,11 @@ namespace Artysci.UserControls
             listView1.Columns.Add("Name", 60, HorizontalAlignment.Left);
             listView1.Columns.Add("Type", 60, HorizontalAlignment.Left);
             listView1.Columns.Add("Genre", 60, HorizontalAlignment.Left);
+      
+
+        }
+        public void update()
+        {
             profiles = Database.getAllProfiles();
             foreach (Profile profile in profiles)
             {
@@ -47,22 +52,14 @@ namespace Artysci.UserControls
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
             panel1.Controls.Remove(pControl);
-            //if (listView1.SelectedItems != null)
             index = listView1.SelectedIndices[0];
-            pControl = new ProfileControl(profiles[index].type == 1 ? "Organizator" : "Artysta" , profiles[index].genre, profiles[index].descr);
-            pControl.OpenControl();
+            pControl = new ProfileControl(profiles[index].name,profiles[index].type == 1 ? "Organizator" : "Artysta" , profiles[index].genre, profiles[index].descr);
+            pControl.OpenControl(); 
             panel1.Visible = true;
             panel1.Controls.Add(pControl);
-           
-
         }
     }
 }
