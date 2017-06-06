@@ -51,10 +51,11 @@ namespace Artysci
                     while (reader.Read())
                     {
                         int idIn = reader.GetInt32(0);
-                        string creator_loginIn = reader.GetString(1);
-                        string questionIn = reader.GetString(2);
-                        string date_startIn = reader.GetString(3);
-                        string date_endIn = reader.GetString(4);
+                        string nameIn = reader.GetString(1);
+                        string creator_loginIn = reader.GetString(2);
+                        string questionIn = reader.GetString(3);
+                        string date_startIn = reader.GetString(4);
+                        string date_endIn = reader.GetString(5);
 
                         sonds.Add(new sond()
                         {
@@ -62,7 +63,8 @@ namespace Artysci
                             creator_login = creator_loginIn,
                             question = questionIn,
                             date_start = date_startIn,
-                            date_end = date_endIn
+                            date_end = date_endIn,
+                            name = nameIn
                         });
                     }
                 }

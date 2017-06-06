@@ -81,6 +81,8 @@ namespace Artysci.Forms
             Debug.WriteLine(newAnnoun.ToString());
 
             Database.addAnnon(newAnnoun);
+            CustomMessageBox.Show("Sukces", "Ogłoszenie dodano do bazy");
+            this.Close();
         }
     }
 }
