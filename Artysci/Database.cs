@@ -144,6 +144,7 @@ namespace Artysci
                         command.Parameters.Add(new SqlParameter("date_end", sond.date_end));
                         command.ExecuteNonQuery();
                     }
+                    con.Close();
 
                     addSondChoice(answers, nextId);
                 }
@@ -151,7 +152,7 @@ namespace Artysci
                 {
                     Console.WriteLine("Count not insert.");
                 }
-                con.Close();
+                
             }
         }
         
@@ -191,6 +192,7 @@ namespace Artysci
             try
             {
                 int nextid = getNewSondChoiceId().id;
+                if (nextid == 0) nextid = 1;
 
                 foreach (sondChoice item in answers)
                 {
