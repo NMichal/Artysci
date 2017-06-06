@@ -16,6 +16,7 @@ namespace Artysci.UserControls
     public partial class ucSonds : UserControl
     {
         List<sond> SondList;
+        List<sondChoice> SondChoiceList;
         SondControl sControl;
         int index;
         private static ucSonds _instance;
@@ -55,7 +56,8 @@ namespace Artysci.UserControls
         {
             sondPanel.Controls.Remove(sControl);
             index = listViewSonds.SelectedIndices[0];
-            sControl = new SondControl(SondList[index].name, SondList[index].question, "Lukasz", "Widuch", "Debil", "Nie pozdrawiam");
+            SondChoiceList = Database.getSondChoices(SondList[index]);
+            sControl = new SondControl(SondList[index].name, SondList[index].question, SondChoiceList[0].answer, SondChoiceList[1].answer, "penis", "ala");
             sControl.OpenControl();
             sondPanel.Visible = true;
             sondPanel.Controls.Add(sControl);
