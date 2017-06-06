@@ -245,6 +245,7 @@
             this.ButtonConfirm.TabIndex = 13;
             this.ButtonConfirm.Text = "ZATWIERDZ";
             this.ButtonConfirm.UseVisualStyleBackColor = false;
+            this.ButtonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
             // 
             // FormNewSond
             // 

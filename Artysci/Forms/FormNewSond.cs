@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Artysci.ObjectsClass;
+
 
 namespace Artysci.Forms
 {
     public partial class FormNewSond : MaterialForm
     {
+        int value;
         List<MaterialLabel> answerLabels = new List<MaterialLabel>();
         List<MaterialSingleLineTextField> textFields = new List<MaterialSingleLineTextField>();
         public FormNewSond()
@@ -38,7 +41,7 @@ namespace Artysci.Forms
         }
 
         private void SetVisible() {
-            int value = (int)numericUpDown1.Value;
+            value = (int)numericUpDown1.Value;
             for (int i = 0; i < textFields.Count(); i++)
             {
                 if (i < value)
@@ -53,6 +56,30 @@ namespace Artysci.Forms
                     textFields[i].Text = "";
                 }
             }
+        }
+
+        private bool isFormCorrect()
+        {
+            if (TextFieldQuestion.Text.Length < 1) return false;
+            for (int i = 0; i < value; i++)
+            {
+                if (textFields[i].Text.Length < 1) return false;
+            }
+
+            return true;
+        }
+
+        private void ButtonConfirm_Click(object sender, EventArgs e)
+        {
+            if (!isFormCorrect()) CustomMessageBox.Show("Błąd", "Nie poprawnie wypełniony formularz");
+            addSond();
+        }
+
+        private void addSond()
+        {
+            sond sonda = new sond();
+            sonda.question = TextFieldQuestion.Text;
+            
         }
     }
 }
