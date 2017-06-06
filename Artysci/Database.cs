@@ -612,7 +612,7 @@ namespace Artysci
                     con.Open();
                     string qry = "SELECT * FROM profile ";
                     if (id != 0) qry += "where id = @id";
-                    qry += "ORDER BY id";
+                    qry += " ORDER BY id";
 
                     using (SqlCommand command = new SqlCommand(qry, con))
                     {

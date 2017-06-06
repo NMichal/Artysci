@@ -56,8 +56,11 @@ namespace Artysci.UserControls
         {
             sondPanel.Controls.Remove(sControl);
             index = listViewSonds.SelectedIndices[0];
+            sond ss = SondList[index];
+            Debug.WriteLine(ss.id);
             SondChoiceList = Database.getSondChoices(SondList[index]);
-            sControl = new SondControl(SondList[index].name, SondList[index].question, SondChoiceList[0].answer, SondChoiceList[1].answer, "penis", "ala");
+            Debug.WriteLine(SondChoiceList);
+            sControl = new SondControl(SondList[index].name, SondList[index].question, SondChoiceList);
             sControl.OpenControl();
             sondPanel.Visible = true;
             sondPanel.Controls.Add(sControl);

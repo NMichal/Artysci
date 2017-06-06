@@ -16,14 +16,15 @@ namespace Artysci.Forms
     public partial class FormMenu : MaterialForm
     {
         private usersTab user;
+        List<ProfileLogin> profilesLoginsList;
+        List<Profile> profilesList;
+        List<ProfileControl> profileControls;
+
         public FormMenu(usersTab newUser)
         {
             InitializeComponent();
             SetCustomStyle();
             user = newUser;
-            GenerateAnnounList();
-            GenerateProfiles();
-            GenerateSondList();
         }
 
         private void SetCustomStyle() {
@@ -41,71 +42,47 @@ namespace Artysci.Forms
             Console.WriteLine(TabMain.SelectedIndex);
             switch (TabMain.SelectedIndex) {
                 case 0:
-                    Console.WriteLine("Sondy");
-                    GenerateSondList();
+                    Console.WriteLine("Anonse");
+                    getUserAnnounces();
                     break;
                 case 1:
-                    Console.WriteLine("Profile");
-                    GenerateProfiles();
+                    Console.WriteLine("Sondy");
+                    getUserSonds();
                     break;
                 case 2:
-                    Console.WriteLine("Anonse");
-                    GenerateAnnounList();
+                    Console.WriteLine("Profile");
+                    getUserProfiles();
                     break;
             }
             TabMain.BringToFront();
         }
 
-        private void GenerateProfiles()
+        public void getUserAnnounces()
         {
-            ProfileControl p1 = new ProfileControl("Malarz Barto","Artysta", "Malarz", "a mauluje se");
-            ProfileControl p2 = new ProfileControl("Szef cyrku", "Organizator", "Akrobata", "można robic akrobacja");
-            ProfileControl p3 = new ProfileControl("Beka","Artysta", "Dekarz", "klepie dechy");
+            profileControls = new List<ProfileControl>();
+            profilesLoginsList = Database.getAllUserProfiles(user);
+            profilesList = new List<Profile>();
 
-            p2.Location = new Point(p2.Location.X, p1.Location.Y + 40);
-            p3.Location = new Point(p3.Location.X, p2.Location.Y + 40);
-            
-
-            PanelProfiles.Controls.Add(p1);
-            PanelProfiles.Controls.Add(p2);
-            PanelProfiles.Controls.Add(p3);
+            foreach (ProfileLogin profileLogin in profilesLoginsList)
+            {
+                profilesList.Add(Database.getAllProfiles(profileLogin.id_profile)[0]);
+            }
+            for (int i = 0; i < profilesList.Count; i++)
+            {
+                profileControls.Add(new ProfileControl(profilesList[i].name, profilesList[i].type == 1 ? "Organizator" : "Artysta", profilesList[i].genre, profilesList[i].descr));
+                profileControls[i].Location = new Point(profileControls[i].Location.X, profileControls[i].Location.Y + i*40);
+                PanelProfiles.Controls.Add(profileControls[i]);
+            }
         }
 
-        private void GenerateAnnounList()
+        public void getUserSonds()
         {
-            AnnounControl a1 = new AnnounControl("Nazwa", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
-            AnnounControl a2 = new AnnounControl("Nazwa inna", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
-            AnnounControl a3 = new AnnounControl("Nazwa a tam", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
 
-            a2.Location = new Point(a2.Location.X, a2.Location.Y + 40);
-            a3.Location = new Point(a2.Location.X, a2.Location.Y + 40);
-
-            PanelAnnoun.Controls.Add(a1);
-            PanelAnnoun.Controls.Add(a2);
-            PanelAnnoun.Controls.Add(a3);
         }
 
-        private void GenerateSondList()
+        public void getUserProfiles()
         {
 
-            SondControl s1 = new SondControl("Pierwsa", "pytanie?", "o1", "o2", "o3", "o4");
-            SondControl s2 = new SondControl("Druga", "pytanie2?", "o1", "o2", "o3", "o4");
-            SondControl s3 = new SondControl("Pierwsa", "pytanie?", "o1", "o2", "o3", "o4");
-            SondControl s4 = new SondControl("Druga", "pytanie2?", "o1", "o2", "o3", "o4");
-            SondControl s5 = new SondControl("Pierwsa", "pytanie?", "o1", "o2", "o3", "o4");
-            SondControl s6 = new SondControl("Druga", "pytanie2?", "o1", "o2", "o3", "o4");
-
-            s2.Location = new Point(s2.Location.X, s1.Location.Y + 40);
-            s3.Location = new Point(s2.Location.X, s1.Location.Y + 40 * 2);
-            s4.Location = new Point(s2.Location.X, s1.Location.Y + 40 * 3);
-            s5.Location = new Point(s2.Location.X, s1.Location.Y + 40 * 4);
-            s6.Location = new Point(s2.Location.X, s1.Location.Y + 40 * 5);
-            PanelSonds.Controls.Add(s1);
-            PanelSonds.Controls.Add(s2);
-            PanelSonds.Controls.Add(s3);
-            PanelSonds.Controls.Add(s4);
-            PanelSonds.Controls.Add(s5);
-            PanelSonds.Controls.Add(s6);
         }
 
         private void ButtonOgloszenia_Click(object sender, EventArgs e)

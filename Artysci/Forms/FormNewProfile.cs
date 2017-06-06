@@ -54,6 +54,7 @@ namespace Artysci.Forms
             Database.addProfile(newProfile, user);
             CustomMessageBox.Show("Sukces", "Profil dodano do bazy");
             this.Close();
+
         }
 
         private void ButtonMake_Click(object sender, EventArgs e)

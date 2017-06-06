@@ -200,10 +200,10 @@
             this.TextBoxDecription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxDecription.Location = new System.Drawing.Point(28, 231);
-            this.TextBoxDecription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBoxDecription.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxDecription.Name = "TextBoxDecription";
             this.TextBoxDecription.ReadOnly = true;
-            this.TextBoxDecription.Size = new System.Drawing.Size(1126, 120);
+            this.TextBoxDecription.Size = new System.Drawing.Size(2006, 120);
             this.TextBoxDecription.TabIndex = 10;
             this.TextBoxDecription.Text = "";
             // 
@@ -241,9 +241,9 @@
             this.Controls.Add(this.LabelLookFor);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AnnounControl";
-            this.Size = new System.Drawing.Size(1144, 411);
+            this.Size = new System.Drawing.Size(2024, 411);
             this.Tag = "Open";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
