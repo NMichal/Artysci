@@ -240,6 +240,7 @@ namespace Artysci
                 {
                     Console.WriteLine("Count not update.");
                 }
+                con.Close();
             }
         }
 
@@ -261,6 +262,7 @@ namespace Artysci
                 {
                     Console.WriteLine("Count not delete.");
                 }
+                con.Close();
             }
         }
 
