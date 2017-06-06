@@ -45,7 +45,7 @@
             // Icon
             // 
             this.Icon.Image = ((System.Drawing.Image)(resources.GetObject("Icon.Image")));
-            this.Icon.Location = new System.Drawing.Point(3, 3);
+            this.Icon.Location = new System.Drawing.Point(5, 3);
             this.Icon.Margin = new System.Windows.Forms.Padding(5);
             this.Icon.Name = "Icon";
             this.Icon.Size = new System.Drawing.Size(32, 32);
@@ -57,10 +57,11 @@
             // LabelName
             // 
             this.LabelName.AutoSize = true;
-            this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelName.Location = new System.Drawing.Point(40, 7);
+            this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelName.ForeColor = System.Drawing.Color.White;
+            this.LabelName.Location = new System.Drawing.Point(40, 5);
             this.LabelName.Name = "LabelName";
-            this.LabelName.Size = new System.Drawing.Size(187, 25);
+            this.LabelName.Size = new System.Drawing.Size(211, 29);
             this.LabelName.TabIndex = 1;
             this.LabelName.Text = "NAME (kliknij mie)";
             this.LabelName.Click += new System.EventHandler(this.PanelTitle_Click);
@@ -70,7 +71,7 @@
             this.PanelTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelTitle.AutoSize = true;
-            this.PanelTitle.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PanelTitle.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelTitle.Controls.Add(this.LabelName);
             this.PanelTitle.Controls.Add(this.Icon);
             this.PanelTitle.Cursor = System.Windows.Forms.Cursors.Hand;

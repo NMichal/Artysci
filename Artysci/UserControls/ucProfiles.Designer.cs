@@ -39,41 +39,41 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(391, 0);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel1.Location = new System.Drawing.Point(293, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(66, 24);
+            this.materialLabel1.Size = new System.Drawing.Size(53, 19);
             this.materialLabel1.TabIndex = 0;
             this.materialLabel1.Text = "Profile";
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(51, 37);
+            this.listView1.Location = new System.Drawing.Point(30, 40);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(842, 204);
+            this.listView1.Size = new System.Drawing.Size(630, 140);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(232, 247);
+            this.panel1.Location = new System.Drawing.Point(30, 184);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(408, 327);
+            this.panel1.Size = new System.Drawing.Size(630, 266);
             this.panel1.TabIndex = 2;
             // 
             // ucProfiles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.materialLabel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucProfiles";
-            this.Size = new System.Drawing.Size(920, 662);
+            this.Size = new System.Drawing.Size(690, 538);
             this.ResumeLayout(false);
             this.PerformLayout();
 

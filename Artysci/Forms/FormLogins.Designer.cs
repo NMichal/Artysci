@@ -35,7 +35,6 @@ namespace Artysci.Forms
             this.LoginTextBox = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.LoginButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.ForgetPasswordButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.RegisterButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.SuspendLayout();
@@ -91,7 +90,7 @@ namespace Artysci.Forms
             this.LoginButton.AutoSize = true;
             this.LoginButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.LoginButton.Depth = 0;
-            this.LoginButton.Location = new System.Drawing.Point(228, 172);
+            this.LoginButton.Location = new System.Drawing.Point(220, 172);
             this.LoginButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.LoginButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.LoginButton.Name = "LoginButton";
@@ -112,23 +111,6 @@ namespace Artysci.Forms
             this.materialDivider1.Size = new System.Drawing.Size(253, 0);
             this.materialDivider1.TabIndex = 4;
             this.materialDivider1.Text = "materialDivider1";
-            // 
-            // ForgetPasswordButton
-            // 
-            this.ForgetPasswordButton.AutoSize = true;
-            this.ForgetPasswordButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ForgetPasswordButton.BackColor = System.Drawing.SystemColors.Control;
-            this.ForgetPasswordButton.Depth = 0;
-            this.ForgetPasswordButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.ForgetPasswordButton.Location = new System.Drawing.Point(13, 259);
-            this.ForgetPasswordButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.ForgetPasswordButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.ForgetPasswordButton.Name = "ForgetPasswordButton";
-            this.ForgetPasswordButton.Primary = false;
-            this.ForgetPasswordButton.Size = new System.Drawing.Size(185, 36);
-            this.ForgetPasswordButton.TabIndex = 5;
-            this.ForgetPasswordButton.Text = "Zapomniałeś hasła?";
-            this.ForgetPasswordButton.UseVisualStyleBackColor = false;
             
             // 
             // RegisterButton
@@ -136,7 +118,7 @@ namespace Artysci.Forms
             this.RegisterButton.AutoSize = true;
             this.RegisterButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.RegisterButton.Depth = 0;
-            this.RegisterButton.Location = new System.Drawing.Point(224, 259);
+            this.RegisterButton.Location = new System.Drawing.Point(198, 259);
             this.RegisterButton.Margin = new System.Windows.Forms.Padding   (4, 6, 4, 6);
             this.RegisterButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.RegisterButton.Name = "RegisterButton";
@@ -165,7 +147,6 @@ namespace Artysci.Forms
             this.ClientSize = new System.Drawing.Size(311, 334);
             this.Controls.Add(this.materialDivider2);
             this.Controls.Add(this.RegisterButton);
-            this.Controls.Add(this.ForgetPasswordButton);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.LoginTextBox);
@@ -186,7 +167,6 @@ namespace Artysci.Forms
         private MaterialSkin.Controls.MaterialSingleLineTextField LoginTextBox;
         private MaterialSkin.Controls.MaterialFlatButton LoginButton;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
-        private MaterialSkin.Controls.MaterialFlatButton ForgetPasswordButton;
         private MaterialSkin.Controls.MaterialFlatButton RegisterButton;
         private MaterialSkin.Controls.MaterialDivider materialDivider2;
     }

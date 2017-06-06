@@ -15,12 +15,14 @@ namespace Artysci.Forms
         public AnnounControl()
         {
             InitializeComponent();
+            panel1.BackColor = Color.FromArgb(54, 71, 79);
             CloseControl(); 
         }
 
         public AnnounControl(string name, string lookingFor, string lookingForSpecific, string city, string date, string description)
         {
             InitializeComponent();
+            panel1.BackColor = Color.FromArgb(54, 71, 79);
             LabelName.Text = name;
             LabelLookFor.Text = lookingFor;
             LabelLookForSpecific.Text = lookingForSpecific;

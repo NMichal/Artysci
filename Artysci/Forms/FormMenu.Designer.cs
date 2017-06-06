@@ -37,14 +37,13 @@
             this.PanelAnnoun = new System.Windows.Forms.Panel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.PanelSonds = new System.Windows.Forms.Panel();
-            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.refreshButton = new MaterialSkin.Controls.MaterialLabel();
             this.PanelProfiles = new System.Windows.Forms.Panel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.TextBoxSzukaj = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.PanelMenu.SuspendLayout();
             this.TabMain.SuspendLayout();
@@ -55,7 +54,7 @@
             // 
             // PanelMenu
             // 
-            this.PanelMenu.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PanelMenu.BackColor = System.Drawing.Color.White;
             this.PanelMenu.Controls.Add(this.ButtonGrupy);
             this.PanelMenu.Controls.Add(this.ButtonSondy);
             this.PanelMenu.Controls.Add(this.ButtonOgloszenia);
@@ -131,7 +130,7 @@
             this.tabPage1.Controls.Add(this.materialLabel5);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(682, 512);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Twoje Ogloszenia";
@@ -140,10 +139,10 @@
             // PanelAnnoun
             // 
             this.PanelAnnoun.AutoSize = true;
-            this.PanelAnnoun.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PanelAnnoun.Location = new System.Drawing.Point(17, 49);
+            this.PanelAnnoun.BackColor = System.Drawing.Color.Transparent;
+            this.PanelAnnoun.Location = new System.Drawing.Point(20, 40);
             this.PanelAnnoun.Name = "PanelAnnoun";
-            this.PanelAnnoun.Size = new System.Drawing.Size(655, 440);
+            this.PanelAnnoun.Size = new System.Drawing.Size(640, 440);
             this.PanelAnnoun.TabIndex = 3;
             // 
             // materialLabel5
@@ -154,52 +153,48 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(24, 10);
+            this.materialLabel5.Location = new System.Drawing.Point(20, 10);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(126, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(154, 19);
             this.materialLabel5.TabIndex = 2;
-            this.materialLabel5.Text = "Nowe Ogloszenie";
+            this.materialLabel5.Text = "+NOWE OGŁOSZENIE";
             this.materialLabel5.Click += new System.EventHandler(this.materialLabel5_Click);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.materialLabel1);
             this.tabPage2.Controls.Add(this.PanelSonds);
-            this.tabPage2.Controls.Add(this.materialFlatButton1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(682, 512);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Twoje Sondy";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(20, 10);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(116, 19);
+            this.materialLabel1.TabIndex = 6;
+            this.materialLabel1.Text = "+NOWA SONDA";
+            // 
             // PanelSonds
             // 
             this.PanelSonds.AutoScroll = true;
-            this.PanelSonds.BackColor = System.Drawing.Color.Gainsboro;
-            this.PanelSonds.Location = new System.Drawing.Point(25, 54);
+            this.PanelSonds.BackColor = System.Drawing.Color.Transparent;
+            this.PanelSonds.Location = new System.Drawing.Point(20, 40);
             this.PanelSonds.Name = "PanelSonds";
-            this.PanelSonds.Size = new System.Drawing.Size(235, 367);
+            this.PanelSonds.Size = new System.Drawing.Size(640, 440);
             this.PanelSonds.TabIndex = 5;
-            // 
-            // materialFlatButton1
-            // 
-            this.materialFlatButton1.AutoSize = true;
-            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.materialFlatButton1.Location = new System.Drawing.Point(25, 9);
-            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton1.Name = "materialFlatButton1";
-            this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(172, 36);
-            this.materialFlatButton1.TabIndex = 1;
-            this.materialFlatButton1.Text = "materialFlatButton1";
-            this.materialFlatButton1.UseVisualStyleBackColor = false;
-            this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
             // tabPage3
             // 
@@ -208,7 +203,7 @@
             this.tabPage3.Controls.Add(this.materialLabel4);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(682, 512);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Twoje Profile";
@@ -222,21 +217,21 @@
             this.refreshButton.Depth = 0;
             this.refreshButton.Font = new System.Drawing.Font("Roboto", 11F);
             this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.refreshButton.Location = new System.Drawing.Point(379, 19);
+            this.refreshButton.Location = new System.Drawing.Point(211, 10);
             this.refreshButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(65, 19);
+            this.refreshButton.Size = new System.Drawing.Size(73, 19);
             this.refreshButton.TabIndex = 4;
-            this.refreshButton.Text = "Odśwież";
+            this.refreshButton.Text = "ODŚWIEŻ";
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // PanelProfiles
             // 
             this.PanelProfiles.AutoSize = true;
-            this.PanelProfiles.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.PanelProfiles.Location = new System.Drawing.Point(20, 48);
+            this.PanelProfiles.BackColor = System.Drawing.Color.Transparent;
+            this.PanelProfiles.Location = new System.Drawing.Point(20, 40);
             this.PanelProfiles.Name = "PanelProfiles";
-            this.PanelProfiles.Size = new System.Drawing.Size(273, 449);
+            this.PanelProfiles.Size = new System.Drawing.Size(640, 440);
             this.PanelProfiles.TabIndex = 3;
             // 
             // materialLabel4
@@ -247,12 +242,12 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(16, 19);
+            this.materialLabel4.Location = new System.Drawing.Point(20, 10);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(104, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(113, 19);
             this.materialLabel4.TabIndex = 1;
-            this.materialLabel4.Text = "NOWY PROFIL";
+            this.materialLabel4.Text = "+NOWY PROFIL";
             this.materialLabel4.Click += new System.EventHandler(this.materialLabel4_Click);
             // 
             // materialTabSelector1
@@ -266,22 +261,6 @@
             this.materialTabSelector1.TabIndex = 2;
             this.materialTabSelector1.Text = "materialTabSelector1";
             this.materialTabSelector1.Click += new System.EventHandler(this.materialTabSelector1_Click);
-            // 
-            // TextBoxSzukaj
-            // 
-            this.TextBoxSzukaj.Depth = 0;
-            this.TextBoxSzukaj.Hint = "  Szukaj";
-            this.TextBoxSzukaj.Location = new System.Drawing.Point(583, 34);
-            this.TextBoxSzukaj.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TextBoxSzukaj.Name = "TextBoxSzukaj";
-            this.TextBoxSzukaj.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.TextBoxSzukaj.PasswordChar = '\0';
-            this.TextBoxSzukaj.SelectedText = "";
-            this.TextBoxSzukaj.SelectionLength = 0;
-            this.TextBoxSzukaj.SelectionStart = 0;
-            this.TextBoxSzukaj.Size = new System.Drawing.Size(212, 23);
-            this.TextBoxSzukaj.TabIndex = 3;
-            this.TextBoxSzukaj.UseSystemPasswordChar = false;
             // 
             // contentPanel
             // 
@@ -297,7 +276,6 @@
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.TabMain);
             this.Controls.Add(this.contentPanel);
-            this.Controls.Add(this.TextBoxSzukaj);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.PanelMenu);
             this.Name = "FormMenu";
@@ -326,14 +304,13 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField TextBoxSzukaj;
         private System.Windows.Forms.Panel contentPanel;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private System.Windows.Forms.Panel PanelSonds;
         private System.Windows.Forms.Panel PanelAnnoun;
         private System.Windows.Forms.Panel PanelProfiles;
         private MaterialSkin.Controls.MaterialLabel refreshButton;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }

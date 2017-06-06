@@ -14,12 +14,14 @@ namespace Artysci.Forms
     {
         public ProfileControl() {
             InitializeComponent();
+            PanelTitle.BackColor = Color.FromArgb(54,71,79);
             CloseControl();
         }
 
         public ProfileControl(string nameString, string ProfileTypeString, string TypeString, string Description)
         {
             InitializeComponent();
+            PanelTitle.BackColor = Color.FromArgb(54, 71, 79);
             LabelName.Text = nameString;
             LabelName.Visible = true;
             LabelProfileType.Text = ProfileTypeString;

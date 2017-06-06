@@ -18,6 +18,7 @@ namespace Artysci.Forms
         public FormLogins()
         {
             InitializeComponent();
+            this.Text = "LOGOWANIE";
             #if (DEBUG)
             {
                 LoginTextBox.Text = "admin";
@@ -53,5 +54,7 @@ namespace Artysci.Forms
             FormRegister register = new FormRegister();
             register.Show();
         }
+
+
     }
 }

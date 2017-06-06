@@ -173,11 +173,6 @@ namespace Artysci.Forms
         { 
         }
 
-        private void materialFlatButton1_Click(object sender, EventArgs e)
-        {
-            var newSond = new FormNewSond(user);
-            newSond.Show();
-        }
 
         private void materialLabel4_Click(object sender, EventArgs e)
         {

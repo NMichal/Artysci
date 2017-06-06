@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SondControl));
             this.PanelTitle = new System.Windows.Forms.Panel();
             this.LabelName = new System.Windows.Forms.Label();
             this.LabelQuestion = new MaterialSkin.Controls.MaterialLabel();
@@ -36,19 +37,21 @@
             this.Odp2 = new MaterialSkin.Controls.MaterialRadioButton();
             this.Odp4 = new MaterialSkin.Controls.MaterialRadioButton();
             this.Odp3 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelTitle
             // 
             this.PanelTitle.AutoSize = true;
             this.PanelTitle.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PanelTitle.Controls.Add(this.pictureBox1);
             this.PanelTitle.Controls.Add(this.LabelName);
             this.PanelTitle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PanelTitle.Location = new System.Drawing.Point(0, 0);
-            this.PanelTitle.Margin = new System.Windows.Forms.Padding(4);
             this.PanelTitle.Name = "PanelTitle";
-            this.PanelTitle.Size = new System.Drawing.Size(309, 49);
+            this.PanelTitle.Size = new System.Drawing.Size(232, 40);
             this.PanelTitle.TabIndex = 0;
             this.PanelTitle.Click += new System.EventHandler(this.PanelTitle_Click);
             // 
@@ -56,10 +59,10 @@
             // 
             this.LabelName.AutoSize = true;
             this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelName.Location = new System.Drawing.Point(45, 6);
-            this.LabelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelName.ForeColor = System.Drawing.Color.White;
+            this.LabelName.Location = new System.Drawing.Point(40, 5);
             this.LabelName.Name = "LabelName";
-            this.LabelName.Size = new System.Drawing.Size(224, 39);
+            this.LabelName.Size = new System.Drawing.Size(178, 31);
             this.LabelName.TabIndex = 0;
             this.LabelName.Text = "SOND NAME";
             this.LabelName.Click += new System.EventHandler(this.PanelTitle_Click);
@@ -70,11 +73,10 @@
             this.LabelQuestion.Depth = 0;
             this.LabelQuestion.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LabelQuestion.Location = new System.Drawing.Point(19, 64);
-            this.LabelQuestion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelQuestion.Location = new System.Drawing.Point(14, 52);
             this.LabelQuestion.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelQuestion.Name = "LabelQuestion";
-            this.LabelQuestion.Size = new System.Drawing.Size(72, 24);
+            this.LabelQuestion.Size = new System.Drawing.Size(58, 19);
             this.LabelQuestion.TabIndex = 1;
             this.LabelQuestion.Text = "Pytanie";
             // 
@@ -83,12 +85,12 @@
             this.ButtonSend.AutoSize = true;
             this.ButtonSend.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ButtonSend.Depth = 0;
-            this.ButtonSend.Location = new System.Drawing.Point(24, 260);
-            this.ButtonSend.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.ButtonSend.Location = new System.Drawing.Point(18, 211);
+            this.ButtonSend.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ButtonSend.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonSend.Name = "ButtonSend";
             this.ButtonSend.Primary = false;
-            this.ButtonSend.Size = new System.Drawing.Size(77, 36);
+            this.ButtonSend.Size = new System.Drawing.Size(63, 36);
             this.ButtonSend.TabIndex = 6;
             this.ButtonSend.Text = "GŁOSUJ";
             this.ButtonSend.UseVisualStyleBackColor = true;
@@ -98,13 +100,13 @@
             this.Odp1.AutoSize = true;
             this.Odp1.Depth = 0;
             this.Odp1.Font = new System.Drawing.Font("Roboto", 10F);
-            this.Odp1.Location = new System.Drawing.Point(24, 105);
+            this.Odp1.Location = new System.Drawing.Point(18, 85);
             this.Odp1.Margin = new System.Windows.Forms.Padding(0);
             this.Odp1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Odp1.MouseState = MaterialSkin.MouseState.HOVER;
             this.Odp1.Name = "Odp1";
             this.Odp1.Ripple = true;
-            this.Odp1.Size = new System.Drawing.Size(69, 30);
+            this.Odp1.Size = new System.Drawing.Size(60, 30);
             this.Odp1.TabIndex = 7;
             this.Odp1.TabStop = true;
             this.Odp1.Text = "odp1";
@@ -115,13 +117,13 @@
             this.Odp2.AutoSize = true;
             this.Odp2.Depth = 0;
             this.Odp2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.Odp2.Location = new System.Drawing.Point(24, 142);
+            this.Odp2.Location = new System.Drawing.Point(18, 115);
             this.Odp2.Margin = new System.Windows.Forms.Padding(0);
             this.Odp2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Odp2.MouseState = MaterialSkin.MouseState.HOVER;
             this.Odp2.Name = "Odp2";
             this.Odp2.Ripple = true;
-            this.Odp2.Size = new System.Drawing.Size(69, 30);
+            this.Odp2.Size = new System.Drawing.Size(60, 30);
             this.Odp2.TabIndex = 8;
             this.Odp2.TabStop = true;
             this.Odp2.Text = "odp2";
@@ -132,13 +134,13 @@
             this.Odp4.AutoSize = true;
             this.Odp4.Depth = 0;
             this.Odp4.Font = new System.Drawing.Font("Roboto", 10F);
-            this.Odp4.Location = new System.Drawing.Point(24, 215);
+            this.Odp4.Location = new System.Drawing.Point(18, 175);
             this.Odp4.Margin = new System.Windows.Forms.Padding(0);
             this.Odp4.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Odp4.MouseState = MaterialSkin.MouseState.HOVER;
             this.Odp4.Name = "Odp4";
             this.Odp4.Ripple = true;
-            this.Odp4.Size = new System.Drawing.Size(69, 30);
+            this.Odp4.Size = new System.Drawing.Size(60, 30);
             this.Odp4.TabIndex = 10;
             this.Odp4.TabStop = true;
             this.Odp4.Text = "odp4";
@@ -149,21 +151,31 @@
             this.Odp3.AutoSize = true;
             this.Odp3.Depth = 0;
             this.Odp3.Font = new System.Drawing.Font("Roboto", 10F);
-            this.Odp3.Location = new System.Drawing.Point(24, 178);
+            this.Odp3.Location = new System.Drawing.Point(18, 145);
             this.Odp3.Margin = new System.Windows.Forms.Padding(0);
             this.Odp3.MouseLocation = new System.Drawing.Point(-1, -1);
             this.Odp3.MouseState = MaterialSkin.MouseState.HOVER;
             this.Odp3.Name = "Odp3";
             this.Odp3.Ripple = true;
-            this.Odp3.Size = new System.Drawing.Size(69, 30);
+            this.Odp3.Size = new System.Drawing.Size(60, 30);
             this.Odp3.TabIndex = 9;
             this.Odp3.TabStop = true;
             this.Odp3.Text = "odp3";
             this.Odp3.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(5, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // SondControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -175,12 +187,12 @@
             this.Controls.Add(this.ButtonSend);
             this.Controls.Add(this.LabelQuestion);
             this.Controls.Add(this.PanelTitle);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SondControl";
-            this.Size = new System.Drawing.Size(313, 303);
+            this.Size = new System.Drawing.Size(235, 253);
             this.Tag = "Open";
             this.PanelTitle.ResumeLayout(false);
             this.PanelTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +208,6 @@
         private MaterialSkin.Controls.MaterialRadioButton Odp2;
         private MaterialSkin.Controls.MaterialRadioButton Odp4;
         private MaterialSkin.Controls.MaterialRadioButton Odp3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

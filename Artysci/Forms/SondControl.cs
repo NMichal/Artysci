@@ -18,12 +18,14 @@ namespace Artysci.Forms
         int choicesCount;
         public SondControl() {
             InitializeComponent();
+            PanelTitle.BackColor = Color.FromArgb(54, 71, 79);
             CloseControl();
         }
 
         public SondControl(string SondName, string questionString, List<sondChoice> choices)//string odp1, string odp2, string odp3, string odp4)
         {
             InitializeComponent();
+            PanelTitle.BackColor = Color.FromArgb(54, 71, 79);
             choicesCount = choices.Count;
             //rText = "ala";
             // r.Visible = false;
