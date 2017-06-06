@@ -82,6 +82,13 @@ namespace Artysci
                 Debug.WriteLine(item.login_user);
                 Debug.WriteLine(item.id_profile);
             }
+
+            sond sond = new sond() { id = 1 };
+            List<sondChoice> ss = Database.getSondChoices(sond);
+            foreach (sondChoice item in ss)
+            {
+                Debug.WriteLine(item.answer);
+            }
             //>>>>>>>---------------ENDTEST--------------------------------<<<<<<<<<
 
             Application.Run(new Artysci.Forms.FormLogins());
