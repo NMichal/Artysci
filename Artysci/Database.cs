@@ -445,6 +445,46 @@ namespace Artysci
 
         #region Database method Announcements
 
+        public static List<appliedAnnoun> getAppliedByID(int id)
+        {
+            List<appliedAnnoun> app = new List<appliedAnnoun>();
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "SELECT * FROM appliedAnnoun where Announ_id = @id";
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", id));
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while(reader.Read())
+                        {
+                            string loginIn = reader.GetString(0);
+                            int idIn = reader.GetInt32(1);
+                            int agreedIn = reader.GetInt32(2);
+
+                            app.Add(new appliedAnnoun()
+                            {
+                                agreed = agreedIn,
+                                user_login = loginIn,
+                                announ_id = idIn
+                            });
+                        }
+                    }
+                    con.Close();
+                }
+            }catch(Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+
+            return app;
+        }
+
+
         /// <summary>
         /// Pobiera ogłoszenia z bazy
         /// </summary>

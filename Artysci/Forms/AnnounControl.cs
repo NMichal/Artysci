@@ -66,27 +66,42 @@ namespace Artysci.Forms
             base.OnPaint(pe);
         }
 
+        public void changeButtonText()
+        {
+            ButtonOdpowiedz.Text = "Sprawdź";
+        }
+
         private void ButtonOdpowiedz_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine("login " + user.login + " id " + id);
-            //sprawdz czy to ja stworzylem
-            Announ announ = Database.getAnnounById(id);
-            if (announ.login_user == user.login)
+            if (ButtonOdpowiedz.Text == "Sprawdź") checkAnn();
+            else
             {
-                CustomMessageBox.Show("Blad", "Nie możesz się zgłosić do własnego ogłoszenia!");
-                return;
-            }
-            // sprawdz czy juz sie zglosilem
-            if (Database.isUserApplied(id, user))
-            {
-                CustomMessageBox.Show("Blad", "Już zgłosiłeś się do tego ogłoszenia");
-                return;
-            }
+                Debug.WriteLine("login " + user.login + " id " + id);
+                //sprawdz czy to ja stworzylem
+                Announ announ = Database.getAnnounById(id);
+                if (announ.login_user == user.login)
+                {
+                    CustomMessageBox.Show("Blad", "Nie możesz się zgłosić do własnego ogłoszenia!");
+                    return;
+                }
+                // sprawdz czy juz sie zglosilem
+                if (Database.isUserApplied(id, user))
+                {
+                    CustomMessageBox.Show("Blad", "Już zgłosiłeś się do tego ogłoszenia");
+                    return;
+                }
 
-            appliedAnnoun app = new appliedAnnoun() { user_login = user.login, announ_id = id, agreed = 0 };
+                appliedAnnoun app = new appliedAnnoun() { user_login = user.login, announ_id = id, agreed = 0 };
 
-            Database.addApplyAnnoun(app);
-            CustomMessageBox.Show("Sukces", "Odpowiedź zapisana pomyślnie");
+                Database.addApplyAnnoun(app);
+                CustomMessageBox.Show("Sukces", "Odpowiedź zapisana pomyślnie");
+            }
+        }
+
+        private void checkAnn()
+        {
+            checkAnnoun check = new checkAnnoun(id);
+            check.Show();
         }
     }
 }

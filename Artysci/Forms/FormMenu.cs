@@ -74,7 +74,9 @@ namespace Artysci.Forms
             }
             for (int i = 0; i < annList.Count; i++)
             {
-                announControls.Add(new AnnounControl(annList[i].title, annList[i].type_anoun, annList[i].type_looking, annList[i].town, annList[i].date, annList[i].descr, annList[i].id, user));
+                AnnounControl newCtr = new AnnounControl(annList[i].title, annList[i].type_anoun, annList[i].type_looking, annList[i].town, annList[i].date, annList[i].descr, annList[i].id, user);
+                newCtr.changeButtonText();
+                announControls.Add(newCtr);
                 announControls[i].Location = new Point(announControls[i].Location.X, announControls[i].Location.Y + i * 40);
                 PanelAnnoun.Controls.Add(announControls[i]);
             }

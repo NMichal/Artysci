@@ -71,6 +71,12 @@
     <Compile Include="Forms\AnnounControl.Designer.cs">
       <DependentUpon>AnnounControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\checkAnnoun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\checkAnnoun.Designer.cs">
+      <DependentUpon>checkAnnoun.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormLogins.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AnnounControl.resx">
       <DependentUpon>AnnounControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\checkAnnoun.resx">
+      <DependentUpon>checkAnnoun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLogins.resx">
       <DependentUpon>FormLogins.cs</DependentUpon>
