@@ -47,15 +47,20 @@ namespace Artysci.Forms
 
         public void CloseControl() {
             LabelLookFor.Visible = LabelCity.Visible = LabelDate.Visible = LabelLookForSpecific.Visible = TextBoxDecription.Visible
-                = materialLabel1.Visible = materialLabel3.Visible = materialLabel5.Visible = materialLabel7.Visible = materialLabel9.Visible = materialFlatButton1.Visible = false;
+                = materialLabel1.Visible = materialLabel3.Visible = materialLabel5.Visible = materialLabel7.Visible = materialLabel9.Visible = ButtonOdpowiedz.Visible = false;
         }
         public void OpenControl() {
             LabelLookFor.Visible = LabelCity.Visible = LabelDate.Visible = LabelLookForSpecific.Visible = TextBoxDecription.Visible
-                = materialLabel1.Visible = materialLabel3.Visible = materialLabel5.Visible = materialLabel7.Visible = materialLabel9.Visible = materialFlatButton1.Visible = true;
+                = materialLabel1.Visible = materialLabel3.Visible = materialLabel5.Visible = materialLabel7.Visible = materialLabel9.Visible = ButtonOdpowiedz.Visible = true;
         }
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
+        }
+
+        private void ButtonOdpowiedz_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Nacisnales ODPOWIEDZ");
         }
     }
 }
