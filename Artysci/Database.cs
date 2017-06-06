@@ -420,11 +420,13 @@ namespace Artysci
                         {
                             int idIn = reader.GetInt32(0);
                             string loginIn = reader.GetString(1);
-                            int profileIdIn = reader.GetInt32(2);
-                            string dateIn = reader.GetString(3);
-                            string descrIn = reader.GetString(4);
-                            string type_anounIn = reader.GetString(5);
-                            string type_lookingIn = reader.GetString(6);
+                            string titleIn = reader.GetString(2);
+                            string townIn = reader.GetString(3);
+                            int profileIdIn = reader.GetInt32(4);
+                            string dateIn = reader.GetString(5);
+                            string descrIn = reader.GetString(6);
+                            string type_anounIn = reader.GetString(7);
+                            string type_lookingIn = reader.GetString(8);
 
                             announs.Add(new Announ()
                             {
@@ -434,7 +436,9 @@ namespace Artysci
                                 descr = descrIn,
                                 profile_id = profileIdIn,
                                 type_anoun = type_anounIn,
-                                type_looking = type_lookingIn
+                                type_looking = type_lookingIn,
+                                town = townIn,
+                                title = titleIn
                             });
                         }
                     }
