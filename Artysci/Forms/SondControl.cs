@@ -44,11 +44,11 @@ namespace Artysci.Forms
             }
         }
 
-        void CloseControl() {
+        public void CloseControl() {
             LabelQuestion.Visible = Odp1.Visible = Odp2.Visible = Odp3.Visible = Odp4.Visible = ButtonSend.Visible = false;
         }
 
-        void OpenControl() {
+        public void  OpenControl() {
 
             LabelQuestion.Visible = Odp1.Visible = Odp2.Visible = Odp3.Visible = Odp4.Visible = ButtonSend.Visible = true;
         }

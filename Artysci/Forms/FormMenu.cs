@@ -129,9 +129,13 @@ namespace Artysci.Forms
                 contentPanel.Controls.Add(ucSonds.Instance);
                 ucSonds.Instance.Dock = DockStyle.Fill;
                 ucSonds.Instance.BringToFront();
+                ucSonds.Instance.update();
             }
             else
+            {
+                ucSonds.Instance.update();
                 ucSonds.Instance.BringToFront();
+            }
         }
 
         private void ButtonGrupy_Click(object sender, EventArgs e)

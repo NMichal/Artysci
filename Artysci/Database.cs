@@ -37,7 +37,7 @@ namespace Artysci
         #endregion
 
         #region Database method sond
-        public static List<sond> GetSond(string statement = "")
+        public static List<sond> GetSonds(string statement = "")
         {
             List<sond> sonds = new List<sond>();
             using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
@@ -82,7 +82,7 @@ namespace Artysci
                 try
                 {
                     int nextId;
-                    List<sond> sonds = GetSond();
+                    List<sond> sonds = GetSonds();
                     try
                     {
                         nextId = sonds.OrderByDescending(u => u.id).FirstOrDefault().id + 1;

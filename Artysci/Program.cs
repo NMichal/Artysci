@@ -22,14 +22,14 @@ namespace Artysci
             Database.ConnectDatabase(); //Podłączenie bazy przed wywołaniem jakiejkolwiek formatki
 
             //>>>>>>>>>---------------TEST--------------------------------<<<<<<<<<
-            //List<sond> sondAll = Database.GetSond(); //Test funkcji pobierającej sondy jako liste obiektów
+            //List<sond> sondAll = Database.GetSonds(); //Test funkcji pobierającej sondy jako liste obiektów
             //foreach (sond sond in sondAll)
             //{
             //    Debug.WriteLine(sond.ToString());
             //}
 
 
-            //List<sond> sondWhere = Database.GetSond("where id in (1,2)");
+            //List<sond> sondWhere = Database.GetSonds("where id in (1,2)");
             //foreach (sond sond in sondWhere)
             //{
             //    Debug.WriteLine(sond.ToString());
@@ -41,14 +41,14 @@ namespace Artysci
             //Database.AddSond(s);
 
             //update test
-            //sond upd = Database.GetSond("where id = 1")[0];
+            //sond upd = Database.GetSonds("where id = 1")[0];
             //upd.question = "update test";
             //Database.UpdateSond(upd);
 
             //Delete test
             //try
             //{
-            //    sond deletesond = Database.GetSond("where id = 3")[0];
+            //    sond deletesond = Database.GetSonds("where id = 3")[0];
             //    Database.DeleteSond(deletesond);
             //}
             //catch
