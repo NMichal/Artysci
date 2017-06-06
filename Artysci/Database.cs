@@ -166,7 +166,7 @@ namespace Artysci
                 {
                     con.Open();
 
-                    using (SqlCommand command = new SqlCommand("SELECT max(sond_id) FROM sondChoice", con))
+                    using (SqlCommand command = new SqlCommand("SELECT max(id) FROM sondChoice", con))
                     {
                         SqlDataReader reader = command.ExecuteReader();
                         
