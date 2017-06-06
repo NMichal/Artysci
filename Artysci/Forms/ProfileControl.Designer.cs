@@ -46,7 +46,7 @@
             // 
             this.Icon.Image = ((System.Drawing.Image)(resources.GetObject("Icon.Image")));
             this.Icon.Location = new System.Drawing.Point(3, 3);
-            this.Icon.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Icon.Margin = new System.Windows.Forms.Padding(5);
             this.Icon.Name = "Icon";
             this.Icon.Size = new System.Drawing.Size(32, 32);
             this.Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -67,6 +67,8 @@
             // 
             // PanelTitle
             // 
+            this.PanelTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelTitle.AutoSize = true;
             this.PanelTitle.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PanelTitle.Controls.Add(this.LabelName);
@@ -119,12 +121,13 @@
             // 
             // TextBoxDescription
             // 
-            this.TextBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TextBoxDescription.Location = new System.Drawing.Point(19, 143);
             this.TextBoxDescription.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.TextBoxDescription.Name = "TextBoxDescription";
             this.TextBoxDescription.ReadOnly = true;
-            this.TextBoxDescription.Size = new System.Drawing.Size(256, 86);
+            this.TextBoxDescription.Size = new System.Drawing.Size(253, 86);
             this.TextBoxDescription.TabIndex = 6;
             this.TextBoxDescription.Text = "";
             // 

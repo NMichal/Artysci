@@ -44,7 +44,7 @@ namespace Artysci.Forms
                 //odp[i].Visible = true;
             }
 
-            //CloseControl();
+            CloseControl();
         }
 
         private void PanelTitle_Click(object sender, EventArgs e)
@@ -67,6 +67,7 @@ namespace Artysci.Forms
             {
                 odp[i].Visible = false;
             }
+            ButtonSend.Visible = false;
 
         }
 
@@ -77,6 +78,7 @@ namespace Artysci.Forms
             {
                 odp[i].Visible = true;
             }
+            ButtonSend.Visible = true;
         }
 
         protected override void OnPaint(PaintEventArgs pe)
