@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Artysci.ObjectsClass;
 
 namespace Artysci.Forms
 {
@@ -18,15 +19,22 @@ namespace Artysci.Forms
             CloseControl();
         }
 
-        public SondControl(string SondName, string questionString, string odp1, string odp2, string odp3, string odp4)
+        public SondControl(string SondName, string questionString, List<sondChoice> choices)//string odp1, string odp2, string odp3, string odp4)
         {
+            List<MaterialSkin.Controls.MaterialRadioButton> odp = new List<MaterialSkin.Controls.MaterialRadioButton>();
+            odp.Add(Odp1);
+            odp.Add(Odp2);
+            odp.Add(Odp3);
+            odp.Add(Odp4);
+
             InitializeComponent();
             LabelName.Text = SondName;
             LabelQuestion.Text = questionString;
-            Odp1.Text = odp1;
-            Odp2.Text = odp2;
-            Odp3.Text = odp3;
-            Odp4.Text = odp4;
+            for (int i = 0; i < choices.Count; i++)
+            {
+                odp[i].Text = choices[i].answer;
+            }
+
             CloseControl();
         }
 

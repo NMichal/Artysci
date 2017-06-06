@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Artysci.ObjectsClass
 {
-    class sondChoice
+    public class sondChoice
     {
         public int id { get; set; }
         public int sond_id { get; set; }
