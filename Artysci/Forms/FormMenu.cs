@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Artysci.UserControls;
 using Artysci.ObjectsClass;
+using System.Diagnostics;
 
 namespace Artysci.Forms
 {
@@ -59,6 +60,31 @@ namespace Artysci.Forms
 
         public void getUserAnnounces()
         {
+            List<Announ> annList = new List<Announ>();
+            List<AnnounControl>announControls = new List<AnnounControl>();
+            //annList = Database.getAnnouns();
+            foreach (Announ ann in Database.getAnnouns())
+            {
+                if (ann.login_user == user.login)
+                {
+                    annList.Add(ann);
+                }
+            }
+            for (int i = 0; i < annList.Count; i++)
+            {
+                announControls.Add(new AnnounControl(annList[i].title, annList[i].type_anoun, annList[i].type_looking, annList[i].town, annList[i].date, annList[i].descr));
+                announControls[i].Location = new Point(announControls[i].Location.X, announControls[i].Location.Y + i * 40);
+                PanelAnnoun.Controls.Add(announControls[i]);
+            }
+        }
+
+        public void getUserSonds()
+        {
+
+        }
+
+        public void getUserProfiles()
+        {
             profileControls = new List<ProfileControl>();
             profilesLoginsList = Database.getAllUserProfiles(user);
             profilesList = new List<Profile>();
@@ -70,18 +96,9 @@ namespace Artysci.Forms
             for (int i = 0; i < profilesList.Count; i++)
             {
                 profileControls.Add(new ProfileControl(profilesList[i].name, profilesList[i].type == 1 ? "Organizator" : "Artysta", profilesList[i].genre, profilesList[i].descr));
-                profileControls[i].Location = new Point(profileControls[i].Location.X, profileControls[i].Location.Y + i*40);
+                profileControls[i].Location = new Point(profileControls[i].Location.X, profileControls[i].Location.Y + i * 40);
                 PanelProfiles.Controls.Add(profileControls[i]);
             }
-        }
-
-        public void getUserSonds()
-        {
-
-        }
-
-        public void getUserProfiles()
-        {
 
         }
 
@@ -152,11 +169,17 @@ namespace Artysci.Forms
         {
             var newAnoun = new FormNewAnnouncement(user);
             newAnoun.Show();
+
         }
 
         private void TabMain_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void refreshButton_Click(object sender, EventArgs e)
+        {
+            getUserAnnounces();
         }
     }
 }

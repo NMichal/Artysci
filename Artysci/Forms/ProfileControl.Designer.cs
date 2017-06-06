@@ -56,7 +56,6 @@
             // 
             // LabelName
             // 
-            this.LabelName.AutoSize = true;
             this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.LabelName.Location = new System.Drawing.Point(53, 9);
             this.LabelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -70,20 +69,20 @@
             // 
             this.PanelTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelTitle.AutoSize = true;
             this.PanelTitle.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PanelTitle.Controls.Add(this.LabelName);
             this.PanelTitle.Controls.Add(this.Icon);
             this.PanelTitle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PanelTitle.Location = new System.Drawing.Point(0, 0);
-            this.PanelTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PanelTitle.Margin = new System.Windows.Forms.Padding(4);
             this.PanelTitle.Name = "PanelTitle";
-            this.PanelTitle.Size = new System.Drawing.Size(276, 49);
+            this.PanelTitle.Size = new System.Drawing.Size(533, 49);
             this.PanelTitle.TabIndex = 2;
             this.PanelTitle.Click += new System.EventHandler(this.PanelTitle_Click);
             // 
             // LabelTyp
             // 
-            this.LabelTyp.AutoSize = true;
             this.LabelTyp.Depth = 0;
             this.LabelTyp.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelTyp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -97,7 +96,6 @@
             // 
             // LabelTworczosc
             // 
-            this.LabelTworczosc.AutoSize = true;
             this.LabelTworczosc.Depth = 0;
             this.LabelTworczosc.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelTworczosc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -111,7 +109,6 @@
             // 
             // LabelOpis
             // 
-            this.LabelOpis.AutoSize = true;
             this.LabelOpis.Depth = 0;
             this.LabelOpis.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelOpis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -126,17 +123,16 @@
             // TextBoxDescription
             // 
             this.TextBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxDescription.Location = new System.Drawing.Point(25, 232);
+            this.TextBoxDescription.Location = new System.Drawing.Point(25, 233);
             this.TextBoxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 12);
             this.TextBoxDescription.Name = "TextBoxDescription";
             this.TextBoxDescription.ReadOnly = true;
-            this.TextBoxDescription.Size = new System.Drawing.Size(227, 105);
+            this.TextBoxDescription.Size = new System.Drawing.Size(492, 105);
             this.TextBoxDescription.TabIndex = 6;
             this.TextBoxDescription.Text = "";
             // 
             // LabelProfileType
             // 
-            this.LabelProfileType.AutoSize = true;
             this.LabelProfileType.Depth = 0;
             this.LabelProfileType.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelProfileType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -150,7 +146,6 @@
             // 
             // LabelType
             // 
-            this.LabelType.AutoSize = true;
             this.LabelType.Depth = 0;
             this.LabelType.Font = new System.Drawing.Font("Roboto", 11F);
             this.LabelType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -178,11 +173,10 @@
             this.Controls.Add(this.PanelTitle);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ProfileControl";
-            this.Size = new System.Drawing.Size(189, 349);
+            this.Size = new System.Drawing.Size(521, 350);
             this.Tag = "Open";
             ((System.ComponentModel.ISupportInitialize)(this.Icon)).EndInit();
             this.PanelTitle.ResumeLayout(false);
-            this.PanelTitle.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

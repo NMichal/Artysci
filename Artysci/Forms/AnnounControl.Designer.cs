@@ -203,7 +203,7 @@
             this.TextBoxDecription.Margin = new System.Windows.Forms.Padding(4);
             this.TextBoxDecription.Name = "TextBoxDecription";
             this.TextBoxDecription.ReadOnly = true;
-            this.TextBoxDecription.Size = new System.Drawing.Size(2006, 120);
+            this.TextBoxDecription.Size = new System.Drawing.Size(2886, 120);
             this.TextBoxDecription.TabIndex = 10;
             this.TextBoxDecription.Text = "";
             // 
@@ -243,7 +243,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AnnounControl";
-            this.Size = new System.Drawing.Size(2024, 411);
+            this.Size = new System.Drawing.Size(2904, 411);
             this.Tag = "Open";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

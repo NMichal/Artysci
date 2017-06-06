@@ -61,6 +61,7 @@ namespace Artysci.Forms
         {
             if (!isFormCorrect()) CustomMessageBox.Show("Błąd", "Formularz wypełniony niepoprawnie");
             else addProfile();
+           
         }
 
 
