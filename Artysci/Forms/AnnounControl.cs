@@ -7,19 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Artysci.ObjectsClass;
+using System.Diagnostics;
 
 namespace Artysci.Forms
 {
     public partial class AnnounControl : UserControl
     {
         int id;
+        usersTab user;
         public AnnounControl()
         {
             InitializeComponent();
             CloseControl(); 
         }
 
-        public AnnounControl(string name, string lookingFor, string lookingForSpecific, string city, string date, string description, int announid)
+        public AnnounControl(string name, string lookingFor, string lookingForSpecific, string city, string date, string description, int announid, usersTab newUser)
         {
             InitializeComponent();
             LabelName.Text = name;
@@ -29,6 +32,7 @@ namespace Artysci.Forms
             LabelDate.Text = date;
             TextBoxDecription.Text = description;
             id = announid;
+            user = newUser;
 
             CloseControl();
         }
@@ -62,7 +66,9 @@ namespace Artysci.Forms
 
         private void ButtonOdpowiedz_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Nacisnales ODPOWIEDZ");
+            //sprawdz czy to ja stworzylem
+            // sprawdz czy juz sie zglosilem
+            Debug.WriteLine("login " +  user.login + " id " + id);
         }
     }
 }

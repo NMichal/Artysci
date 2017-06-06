@@ -67,7 +67,7 @@ namespace Artysci.UserControls
         {
             annPanel.Controls.Remove(aControl);
             index = listView1.SelectedIndices[0];
-            aControl = new AnnounControl(announList[index].title, announList[index].type_anoun, announList[index].type_looking, announList[index].town, announList[index].date, announList[index].descr, announList[index].id);
+            aControl = new AnnounControl(announList[index].title, announList[index].type_anoun, announList[index].type_looking, announList[index].town, announList[index].date, announList[index].descr, announList[index].id, user);
             aControl.OpenControl();
             annPanel.Visible = true;
             annPanel.Controls.Add(aControl);
