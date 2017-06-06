@@ -17,12 +17,14 @@ namespace Artysci.Forms
             CloseControl();
         }
 
-        public ProfileControl(string ProfileTypeString, string TypeString, string Description)
+        public ProfileControl(string nameString, string ProfileTypeString, string TypeString, string Description)
         {
             InitializeComponent();
+            LabelName.Text = nameString;
             LabelProfileType.Text = ProfileTypeString;
             LabelType.Text = TypeString;
             TextBoxDescription.Text = Description;
+            this.Refresh();
             CloseControl();
         }
 

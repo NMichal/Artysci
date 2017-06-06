@@ -32,7 +32,73 @@ namespace Artysci.Forms
 
         private void materialTabSelector1_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(TabMain.SelectedIndex);
+            switch (TabMain.SelectedIndex) {
+                case 0:
+                    Console.WriteLine("Sondy");
+                    GenerateSondList();
+                    break;
+                case 1:
+                    Console.WriteLine("Profile");
+                    GenerateProfiles();
+                    break;
+                case 2:
+                    Console.WriteLine("Anonse");
+                    GenerateAnnounList();
+                    break;
+            }
+        }
 
+        private void GenerateProfiles()
+        {
+            ProfileControl p1 = new ProfileControl("Malarz Barto","Artysta", "Malarz", "a mauluje se");
+            ProfileControl p2 = new ProfileControl("Szef cyrku", "Organizator", "Akrobata", "można robic akrobacja");
+            ProfileControl p3 = new ProfileControl("Beka","Artysta", "Dekarz", "klepie dechy");
+
+            p2.Location = new Point(p2.Location.X, p1.Location.Y + 40);
+            p3.Location = new Point(p3.Location.X, p2.Location.Y + 40);
+            
+
+            PanelProfiles.Controls.Add(p1);
+            PanelProfiles.Controls.Add(p2);
+            PanelProfiles.Controls.Add(p3);
+        }
+
+        private void GenerateAnnounList()
+        {
+            AnnounCorntrol a1 = new AnnounCorntrol("Nazwa", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
+            AnnounCorntrol a2 = new AnnounCorntrol("Nazwa inna", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
+            AnnounCorntrol a3 = new AnnounCorntrol("Nazwa a tam", "osoba", "miesza bigos glowa", "Kato", "jutro", "No");
+
+            a2.Location = new Point(a2.Location.X, a2.Location.Y + 40);
+            a3.Location = new Point(a2.Location.X, a2.Location.Y + 40);
+
+            PanelAnnoun.Controls.Add(a1);
+            PanelAnnoun.Controls.Add(a2);
+            PanelAnnoun.Controls.Add(a3);
+        }
+
+        private void GenerateSondList()
+        {
+
+            SondControl s1 = new SondControl("Pierwsa", "pytanie?", "o1", "o2", "o3", "o4");
+            SondControl s2 = new SondControl("Druga", "pytanie2?", "o1", "o2", "o3", "o4");
+            SondControl s3 = new SondControl("Pierwsa", "pytanie?", "o1", "o2", "o3", "o4");
+            SondControl s4 = new SondControl("Druga", "pytanie2?", "o1", "o2", "o3", "o4");
+            SondControl s5 = new SondControl("Pierwsa", "pytanie?", "o1", "o2", "o3", "o4");
+            SondControl s6 = new SondControl("Druga", "pytanie2?", "o1", "o2", "o3", "o4");
+
+            s2.Location = new Point(s2.Location.X, s1.Location.Y + 40);
+            s3.Location = new Point(s2.Location.X, s1.Location.Y + 40 * 2);
+            s4.Location = new Point(s2.Location.X, s1.Location.Y + 40 * 3);
+            s5.Location = new Point(s2.Location.X, s1.Location.Y + 40 * 4);
+            s6.Location = new Point(s2.Location.X, s1.Location.Y + 40 * 5);
+            PanelSonds.Controls.Add(s1);
+            PanelSonds.Controls.Add(s2);
+            PanelSonds.Controls.Add(s3);
+            PanelSonds.Controls.Add(s4);
+            PanelSonds.Controls.Add(s5);
+            PanelSonds.Controls.Add(s6);
         }
 
         private void ButtonOgloszenia_Click(object sender, EventArgs e)
@@ -96,5 +162,9 @@ namespace Artysci.Forms
             newAnoun.Show();
         }
 
+        private void TabMain_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
