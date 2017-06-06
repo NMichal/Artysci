@@ -80,6 +80,7 @@ namespace Artysci.Forms
             if (Database.isUserApplied(id, user))
             {
                 CustomMessageBox.Show("Blad", "Już zgłosiłeś się do tego ogłoszenia");
+                return;
             }
 
             appliedAnnoun app = new appliedAnnoun() { user_login = user.login, announ_id = id, agreed = 0 };
