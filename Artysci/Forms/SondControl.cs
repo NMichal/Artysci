@@ -15,20 +15,22 @@ namespace Artysci.Forms
     public partial class SondControl : UserControl
     {
         List<MaterialSkin.Controls.MaterialRadioButton> odp = new List<MaterialSkin.Controls.MaterialRadioButton>();
+        List<sondChoice> choicesList;
         int choicesCount;
+        usersTab user;
         public SondControl() {
             InitializeComponent();
             PanelTitle.BackColor = Color.FromArgb(54, 71, 79);
             CloseControl();
         }
 
-        public SondControl(string SondName, string questionString, List<sondChoice> choices)//string odp1, string odp2, string odp3, string odp4)
+        public SondControl(string SondName, string questionString, List<sondChoice> choices, usersTab newuser)//string odp1, string odp2, string odp3, string odp4)
         {
             InitializeComponent();
+            user = newuser;
+            choicesList = choices;
             PanelTitle.BackColor = Color.FromArgb(54, 71, 79);
             choicesCount = choices.Count;
-            //rText = "ala";
-            // r.Visible = false;
             Odp1.Visible = false;
             Odp2.Visible = false;
             Odp3.Visible = false;
@@ -86,6 +88,28 @@ namespace Artysci.Forms
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
+        }
+        
+        private void ButtonSend_Click(object sender, EventArgs e)
+        {
+            List<RepliedSond> rSondList = new List<RepliedSond>();
+           
+            for (int i = 0; i < choicesCount; i++)
+            {
+                if (odp[i].Checked)
+                {
+                    rSondList = Database.getRepliedSond(choicesList[i].sond_id, user);
+                    if (rSondList.Count <= 0)
+                    {
+                        Database.updateRepliedSond(choicesList[i].sond_id, user);
+                        Database.updateCountSondChoice(choicesList[i]);
+                    }
+                    else
+                    {
+                        CustomMessageBox.Show("BŁĄD", "Juz oddales glos");
+                    }
+                }
+            }
         }
     }
 }

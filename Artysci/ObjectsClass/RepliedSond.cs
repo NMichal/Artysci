@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace Artysci.ObjectsClass
 {
-    public class sondChoice
+    class RepliedSond
     {
         public int id { get; set; }
         public int sond_id { get; set; }
-        public string answer { get; set; }
-        public int counter { get; set; }
+        public string user_login { get; set; }
 
         public override string ToString()
         {
-            return string.Format("id: {0}, sond_id: {1}, answer: {2}, counter : {3}",
-                id, sond_id, answer, counter);
+            return string.Format("id: {0} ,sond_id: {1}, user_login: {2}",
+                id,sond_id, user_login);
         }
     }
 }

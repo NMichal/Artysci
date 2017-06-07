@@ -98,7 +98,7 @@ namespace Artysci.Forms
             for (int i = 0; i < sondList.Count; i++)
             {
                 SondChoiceList = Database.getSondChoices(sondList[i]);
-                sondControls.Add(new SondControl(sondList[i].name, sondList[i].question, SondChoiceList));
+                sondControls.Add(new SondControl(sondList[i].name, sondList[i].question, SondChoiceList, user));
                 sondControls[i].Location = new Point(sondControls[i].Location.X, sondControls[i].Location.Y + i * 40);
                 PanelSonds.Controls.Add(sondControls[i]);
             }
@@ -135,7 +135,7 @@ namespace Artysci.Forms
             }
             else
                 ucAnnouncements.Instance.BringToFront();
-            ucAnnouncements.Instance.setUser(user);
+                ucAnnouncements.Instance.setUser(user);
         }
 
         private void ButtonSondy_Click(object sender, EventArgs e)
@@ -147,12 +147,16 @@ namespace Artysci.Forms
                 ucSonds.Instance.Dock = DockStyle.Fill;
                 ucSonds.Instance.BringToFront();
                 ucSonds.Instance.update();
+
             }
             else
             {
                 ucSonds.Instance.update();
                 ucSonds.Instance.BringToFront();
+        
             }
+            ucSonds.Instance.setUser(user);
+
         }
 
         private void ButtonGrupy_Click(object sender, EventArgs e)
