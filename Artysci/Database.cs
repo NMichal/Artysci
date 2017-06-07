@@ -656,6 +656,57 @@ namespace Artysci
             }
         }
 
+        public static void setNotAgreed(appliedAnnoun app)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "UPDATE appliedAnnoun SET agreed = 0 where Announ_id = @id";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", app.announ_id));
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    con.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+        }
+
+        public static void setAgreed(appliedAnnoun app)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "UPDATE appliedAnnoun SET agreed = 1 where user_login = @login AND Announ_id = @id";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("login", app.user_login));
+                        command.Parameters.Add(new SqlParameter("id", app.announ_id));
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    con.Close();
+                }
+
+            }catch(Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+        }
+
         /// <summary>
         /// Dodaje ogloszenie do bazy
         /// </summary>
