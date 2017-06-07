@@ -103,6 +103,7 @@ namespace Artysci.Forms
                     {
                         Database.updateRepliedSond(choicesList[i].sond_id, user);
                         Database.updateCountSondChoice(choicesList[i]);
+                        CustomMessageBox.Show("SUKCES!", "Głos zapisany!");
                     }
                     else
                     {
