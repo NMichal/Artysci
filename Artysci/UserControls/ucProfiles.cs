@@ -34,9 +34,9 @@ namespace Artysci.UserControls
             InitializeComponent();
             panel1.Visible = false;
             listView1.View = View.Details;
-            listView1.Columns.Add("Name", 60, HorizontalAlignment.Left);
-            listView1.Columns.Add("Type", 60, HorizontalAlignment.Left);
-            listView1.Columns.Add("Genre", 60, HorizontalAlignment.Left);
+            listView1.Columns.Add("Name", 120, HorizontalAlignment.Left);
+            listView1.Columns.Add("Type", 120, HorizontalAlignment.Left);
+            listView1.Columns.Add("Genre", 150, HorizontalAlignment.Left);
       
 
         }
@@ -44,10 +44,13 @@ namespace Artysci.UserControls
         {
             listView1.Items.Clear();
             profiles = Database.getAllProfiles();
+            string profile_type;
             foreach (Profile profile in profiles)
             {
+                if (profile.type == 1) profile_type = "Organizator";
+                else profile_type = "Artysta";
                 ListViewItem profile1 = new ListViewItem(profile.name);
-                profile1.SubItems.Add(profile.type.ToString());
+                profile1.SubItems.Add(profile_type.ToString());
                 profile1.SubItems.Add(profile.genre.ToString());
                 listView1.Items.Add(profile1);
             }
@@ -62,6 +65,11 @@ namespace Artysci.UserControls
             pControl.OpenControl(); 
             panel1.Visible = true;
             panel1.Controls.Add(pControl);
+        }
+
+        private void ucProfiles_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
