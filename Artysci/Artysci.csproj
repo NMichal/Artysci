@@ -134,6 +134,7 @@
     <Compile Include="ObjectsClass\appliedAnnoun.cs" />
     <Compile Include="ObjectsClass\Profile.cs" />
     <Compile Include="ObjectsClass\ProfileLogin.cs" />
+    <Compile Include="ObjectsClass\RepliedSond.cs" />
     <Compile Include="ObjectsClass\sond.cs" />
     <Compile Include="ObjectsClass\sondChoice.cs" />
     <Compile Include="ObjectsClass\usersTab.cs" />

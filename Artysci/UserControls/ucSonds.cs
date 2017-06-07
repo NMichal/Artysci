@@ -19,6 +19,7 @@ namespace Artysci.UserControls
         List<sondChoice> SondChoiceList;
         SondControl sControl;
         int index;
+        usersTab user;
         private static ucSonds _instance;
 
         public static ucSonds Instance
@@ -51,7 +52,10 @@ namespace Artysci.UserControls
             }
 
         }
-
+        public void setUser(usersTab newUser)
+        {
+            user = newUser;
+        }
         private void listViewSonds_DoubleClick(object sender, EventArgs e)
         {
             sondPanel.Controls.Remove(sControl);
@@ -60,7 +64,7 @@ namespace Artysci.UserControls
             Debug.WriteLine(ss.id);
             SondChoiceList = Database.getSondChoices(SondList[index]);
             Debug.WriteLine(SondChoiceList);
-            sControl = new SondControl(SondList[index].name, SondList[index].question, SondChoiceList);
+            sControl = new SondControl(SondList[index].name, SondList[index].question, SondChoiceList, user);
             sControl.OpenControl();
             sondPanel.Visible = true;
             sondPanel.Controls.Add(sControl);

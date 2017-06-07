@@ -75,6 +75,97 @@ namespace Artysci
             return sonds;
         }
 
+        public static void updateCountSondChoice(sondChoice sondChoice)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "UPDATE sondchoice SET counter = counter + 1 WHERE id = @id";
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", sondChoice.id));
+                        command.ExecuteNonQuery();
+                    }
+                    con.Close();
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+        }
+        public static void updateRepliedSond(int sondId, usersTab user)
+        {
+            try
+            {
+                int nextid = getNewSondRepliedId().id;
+                if (nextid == 0) nextid = 1;
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "INSERT INTO repliedSond(id, sond_id, user_login) values(@id, @sond_id, @user_login)";
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", nextid));
+                        command.Parameters.Add(new SqlParameter("sond_id", sondId));
+                        command.Parameters.Add(new SqlParameter("user_login", user.login));
+                        command.ExecuteNonQuery();
+                    }
+                    con.Close();
+
+
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+        }
+        public static List<RepliedSond> getRepliedSond(int sondId, usersTab user)
+        {
+            List<RepliedSond> repliedList = new List<RepliedSond>();
+            try
+            {
+                
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    
+                    con.Open();
+                    string qry = "SELECT * FROM repliedSond where user_login = @user_login AND sond_id = @sond_id";
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("user_login", user.login));
+                        command.Parameters.Add(new SqlParameter("sond_id", sondId));
+
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            int idIn = reader.GetInt32(0);
+                            int sondIdIn = reader.GetInt32(1);
+                            string user_loginIn = reader.GetString(2);
+
+                            repliedList.Add(new RepliedSond
+                            {
+                                id = idIn,
+                                sond_id = sondIdIn,
+                                user_login = user_loginIn
+
+                            });
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+            return repliedList;
+        }
 
         public static List<sondChoice> getSondChoices(sond sond)
         {
@@ -95,12 +186,14 @@ namespace Artysci
                             int idIn = reader.GetInt32(0);
                             int sondIdIn = reader.GetInt32(1);
                             string answerIn = reader.GetString(2);
+                            int countIn = reader.GetInt32(3);
 
                             choiceList.Add(new sondChoice
                             {
                                 answer = answerIn,
                                 id = idIn,
-                                sond_id = sondIdIn
+                                sond_id = sondIdIn,
+                                counter = countIn
                             });
                         }
                     }
@@ -155,8 +248,38 @@ namespace Artysci
                 
             }
         }
-        
-        
+
+        public static sondChoice getNewSondRepliedId()
+        {
+            sondChoice newId = new sondChoice();
+            try
+            {
+
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    
+
+                    using (SqlCommand command = new SqlCommand("SELECT max(id) FROM repliedSond", con))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            newId.id = reader.IsDBNull(0) ? 1 : reader.GetInt32(0) + 1;
+                        }
+                    }
+
+                    con.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+            return newId;
+        }
+
         public static sondChoice getNewSondChoiceId()
         {
             sondChoice newId = new sondChoice();
@@ -199,12 +322,15 @@ namespace Artysci
                     using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
                     {
                         con.Open();
-                        string qry = "INSERT INTO sondChoice(id, sond_id, answer) VALUES (@id, @sond_id, @answer)";
+                        string qry = "INSERT INTO sondChoice(id, sond_id, answer, counter) VALUES (@id, @sond_id, @answer, @counter)";
                         using (SqlCommand command = new SqlCommand(qry, con))
                         {
                             command.Parameters.Add(new SqlParameter("id", nextid));
                             command.Parameters.Add(new SqlParameter("sond_id", idSond));
                             command.Parameters.Add(new SqlParameter("answer", item.answer));
+                            int count = 0;
+                            command.Parameters.Add(new SqlParameter("counter", count));
+
 
                             command.ExecuteNonQuery();
                         }
