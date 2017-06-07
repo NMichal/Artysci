@@ -39,17 +39,17 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(305, 0);
+            this.materialLabel1.Location = new System.Drawing.Point(327, 12);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(49, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(50, 19);
             this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "sondy";
+            this.materialLabel1.Text = "Sondy";
             // 
             // listViewSonds
             // 
             this.listViewSonds.Location = new System.Drawing.Point(30, 40);
-            this.listViewSonds.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewSonds.Margin = new System.Windows.Forms.Padding(2);
             this.listViewSonds.Name = "listViewSonds";
             this.listViewSonds.Size = new System.Drawing.Size(630, 140);
             this.listViewSonds.TabIndex = 1;
@@ -59,7 +59,7 @@
             // sondPanel
             // 
             this.sondPanel.Location = new System.Drawing.Point(30, 184);
-            this.sondPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sondPanel.Margin = new System.Windows.Forms.Padding(2);
             this.sondPanel.Name = "sondPanel";
             this.sondPanel.Size = new System.Drawing.Size(630, 290);
             this.sondPanel.TabIndex = 2;

@@ -44,12 +44,12 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(290, 13);
+            this.materialLabel1.Location = new System.Drawing.Point(299, 14);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(82, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(83, 19);
             this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "ogłoszenia";
+            this.materialLabel1.Text = "Ogłoszenia";
             // 
             // listView1
             // 
@@ -93,13 +93,13 @@
             // date_col
             // 
             this.date_col.DisplayIndex = 1;
-            this.date_col.Text = "Data dodania";
-            this.date_col.Width = 90;
+            this.date_col.Text = "Data wydarzenia";
+            this.date_col.Width = 102;
             // 
             // annPanel
             // 
             this.annPanel.Location = new System.Drawing.Point(30, 185);
-            this.annPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.annPanel.Margin = new System.Windows.Forms.Padding(2);
             this.annPanel.Name = "annPanel";
             this.annPanel.Size = new System.Drawing.Size(630, 351);
             this.annPanel.TabIndex = 2;

@@ -39,7 +39,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(293, 0);
+            this.materialLabel1.Location = new System.Drawing.Point(334, 12);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(53, 19);
@@ -49,7 +49,7 @@
             // listView1
             // 
             this.listView1.Location = new System.Drawing.Point(30, 40);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(630, 140);
             this.listView1.TabIndex = 1;
@@ -59,7 +59,7 @@
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(30, 184);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(630, 266);
             this.panel1.TabIndex = 2;
@@ -74,6 +74,7 @@
             this.Controls.Add(this.materialLabel1);
             this.Name = "ucProfiles";
             this.Size = new System.Drawing.Size(690, 538);
+            this.Load += new System.EventHandler(this.ucProfiles_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

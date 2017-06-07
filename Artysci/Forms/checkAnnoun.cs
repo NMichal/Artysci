@@ -26,7 +26,6 @@ namespace Artysci.Forms
         private void checkAnnoun_Load(object sender, EventArgs e)
         {
             updateLvANDList();
-                       
         }
 
         private void updateLvANDList()
@@ -81,6 +80,7 @@ namespace Artysci.Forms
         private void appLV_DoubleClick(object sender, EventArgs e)
         {
             applyUser();
+
         }
 
         private void applyUser()
