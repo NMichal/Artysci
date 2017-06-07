@@ -639,7 +639,9 @@ namespace Artysci
                             string descrIn = reader.GetString(6);
                             string type_anounIn = reader.GetString(7);
                             string type_lookingIn = reader.GetString(8);
+                            string secondUserin = reader.IsDBNull(9) ? "NULL" : reader.GetString(9);
 
+                            
                             announs.Add(new Announ()
                             {
                                 id = idIn,
@@ -650,7 +652,9 @@ namespace Artysci
                                 type_anoun = type_anounIn,
                                 type_looking = type_lookingIn,
                                 town = townIn,
-                                title = titleIn
+                                title = titleIn,
+                                second_login_user = secondUserin
+                                
                             });
                         }
                     }
@@ -696,19 +700,22 @@ namespace Artysci
                             string descrIn = reader.GetString(6);
                             string type_anounIn = reader.GetString(7);
                             string type_lookingIn = reader.GetString(8);
+                            string secondUserin = reader.IsDBNull(9) ? "NULL" : reader.GetString(9);
 
-                            ann = new Announ()
-                            {
-                                id = idIn,
-                                login_user = loginIn,
-                                date = dateIn,
-                                descr = descrIn,
-                                profile_id = profileIdIn,
-                                type_anoun = type_anounIn,
-                                type_looking = type_lookingIn,
-                                town = townIn,
-                                title = titleIn
-                            };
+                            
+                                ann = new Announ()
+                                {
+                                    id = idIn,
+                                    login_user = loginIn,
+                                    date = dateIn,
+                                    descr = descrIn,
+                                    profile_id = profileIdIn,
+                                    type_anoun = type_anounIn,
+                                    type_looking = type_lookingIn,
+                                    town = townIn,
+                                    title = titleIn,
+                                    second_login_user = secondUserin
+                                };
                         }
 
                     }
@@ -755,7 +762,10 @@ namespace Artysci
             return false;
         }
 
-
+        /// <summary>
+        /// Dodaje zatwierdzenie do bazy
+        /// </summary>
+        /// <param name="app">obiekt appliedAnnoun</param>
         public static void addApplyAnnoun(appliedAnnoun app)
         {
             try
@@ -774,7 +784,9 @@ namespace Artysci
                         command.ExecuteNonQuery();
                     }
 
+                    
                     con.Close();
+                    
                 }
             }catch(Exception e)
             {
@@ -782,6 +794,39 @@ namespace Artysci
             }
         }
 
+        /// <summary>
+        /// Dodaje zatwierdzonego uzytkwnika do bazy
+        /// </summary>
+        /// <param name="app"></param>
+        public static void addUserToAnnoun(appliedAnnoun app)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "UPDATE Announcements SET login_user_second = @login WHERE id = @id";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("login", app.user_login));
+                        command.Parameters.Add(new SqlParameter("id", app.announ_id));
+
+                        command.ExecuteNonQuery();
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+        }
+
+        /// <summary>
+        /// Usuwa zatwierdzonego uzytkwnika
+        /// </summary>
+        /// <param name="app"></param>
         public static void setNotAgreed(appliedAnnoun app)
         {
             try
@@ -799,6 +844,7 @@ namespace Artysci
                     }
 
                     con.Close();
+                    setNullSecondUserLogin(app);
                 }
             }
             catch (Exception e)
@@ -807,6 +853,38 @@ namespace Artysci
             }
         }
 
+        /// <summary>
+        /// Usuwa zatwierdzonego uzytkownika z bazy
+        /// </summary>
+        /// <param name="app">obiekt appliedAnnoun</param>
+        public static void setNullSecondUserLogin(appliedAnnoun app)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(GlobalVariables.connetionString))
+                {
+                    con.Open();
+                    string qry = "UPDATE Announcements SET login_user_second = NULL WHERE id = @id";
+
+                    using (SqlCommand command = new SqlCommand(qry, con))
+                    {
+                        command.Parameters.Add(new SqlParameter("id", app.announ_id));
+
+                        command.ExecuteNonQuery();
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Blad " + e);
+            }
+        }
+
+        /// <summary>
+        /// Dodaje zatwierdzonego uzytkownika
+        /// </summary>
+        /// <param name="app"></param>
         public static void setAgreed(appliedAnnoun app)
         {
             try
@@ -825,6 +903,7 @@ namespace Artysci
                     }
 
                     con.Close();
+                    addUserToAnnoun(app);
                 }
 
             }catch(Exception e)

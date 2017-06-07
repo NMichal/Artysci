@@ -17,11 +17,12 @@ namespace Artysci.ObjectsClass
         public string descr { get; set; }
         public string type_anoun { get; set; }
         public string type_looking { get; set; }
+        public string second_login_user { get; set; }
 
         public override string ToString()
         {
-            return string.Format("id: {0}, login_user: {1}, profile_id: {2}, date: {3}, descr: {4}, type_anoun: {5}, type_looking: {6}, town: {7}, title: {8}",
-                id, login_user, profile_id, date, descr, type_anoun, type_looking, town, title);
+            return string.Format("id: {0}, login_user: {1}, profile_id: {2}, date: {3}, descr: {4}, type_anoun: {5}, type_looking: {6}, town: {7}, title: {8} second_login_user: {9}",
+                id, login_user, profile_id, date, descr, type_anoun, type_looking, town, title, second_login_user);
         }
     }
 }
